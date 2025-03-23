@@ -16,7 +16,7 @@
   "dependencies": {
     "@types/aws-lambda": "^8.10.147",
     "aws-cdk-lib": "2.178.2",
-    "constructs": "^10.0.0",
+    "constructs": "^10.4.2",
     "openapi-mcp-server": "^1.2.0-beta05"
   }
 }
