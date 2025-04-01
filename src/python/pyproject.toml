@@ -1,5 +1,5 @@
 [project]
-name = "mcp-lambda"
+name = "mcp-server-in-aws-lambda"
 dynamic = ["version"]
 description = "Model Context Protocol SDK for AWS Lambda"
 requires-python = ">=3.11"

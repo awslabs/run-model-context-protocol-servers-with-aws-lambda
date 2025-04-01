@@ -39,7 +39,7 @@ cdk bootstrap aws://<aws account id>/us-east-2
 
 ### Build the Python module
 
-Install the mcp-lambda Python module from source:
+Install the mcp-server-in-aws-lambda Python module from source:
 
 ```bash
 cd src/python/
@@ -57,7 +57,7 @@ uv run pytest
 
 ### Build the Typescript package
 
-Build the mcp-lambda Typescript module:
+Build the mcp-server-in-aws-lambda Typescript module:
 
 ```bash
 cd src/typescript/
@@ -90,7 +90,7 @@ cd examples/servers/weather-alerts/
 
 npm install
 
-npm link mcp-lambda
+npm link mcp-server-in-aws-lambda
 
 npm run build
 
@@ -118,7 +118,7 @@ cd examples/chatbots/typescript/
 
 npm install
 
-npm link mcp-lambda
+npm link mcp-server-in-aws-lambda
 
 npm run build
 

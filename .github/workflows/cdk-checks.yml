@@ -47,12 +47,12 @@ jobs:
       - name: Install CDK CLI
         run: npm install -g aws-cdk
 
-      - name: Build and link mcp-lambda package
+      - name: Build and link mcp-server-in-aws-lambda package
         run: npm ci && npm run build && npm link
         working-directory: ./src/typescript
 
       - name: Install dependencies
-        run: npm ci && npm link mcp-lambda
+        run: npm ci && npm link mcp-server-in-aws-lambda
         working-directory: ./examples/servers/weather-alerts
 
       - name: Build

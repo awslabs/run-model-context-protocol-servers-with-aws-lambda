@@ -424,7 +424,7 @@ wheels = [
 ]
 
 [[package]]
-name = "mcp-lambda"
+name = "mcp-server-in-aws-lambda"
 source = { editable = "." }
 dependencies = [
     { name = "aiobotocore" },

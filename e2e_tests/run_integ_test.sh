@@ -25,7 +25,7 @@ npm link
 
 cd ../../examples/servers/weather-alerts/
 npm ci
-npm link mcp-lambda
+npm link mcp-server-in-aws-lambda
 npm run build
 cdk deploy --app 'node lib/weather-alerts-mcp-server.js'
 
@@ -42,6 +42,6 @@ python main.py
 # Run the Typescript integ test
 cd ../typescript/
 npm ci
-npm link mcp-lambda
+npm link mcp-server-in-aws-lambda
 npm run build
 npm test

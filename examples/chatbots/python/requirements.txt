@@ -2,5 +2,6 @@ boto3>=1.36.20,<1.37.24
 mcp>=1.6.0
 uvicorn>=0.32.1
 
-# For testing, this module is installed from local files
-# mcp-lambda
+# For testing, this module is installed from local files.
+# Uncomment this line to build using the module from PyPi
+# mcp-server-in-aws-lambda >= 0.0.1

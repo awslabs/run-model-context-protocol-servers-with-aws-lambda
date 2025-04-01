@@ -47,7 +47,7 @@ flowchart LR
 - This package currently supports MCP servers and clients written in Python and Typescript.
   Other languages such as Kotlin are not supported.
 - The server adapters only adapt stdio MCP servers, not servers written for other protocols such as SSE.
-- The server adapters does not maintain any MCP server state across Lambda function invocations.
+- The server adapters do not maintain any MCP server state across Lambda function invocations.
   Only stateless MCP servers are a good fit for using this adapter. For example, MCP servers
   that invoke stateless tools like the [time MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/time)
   or make stateless web requests like the [fetch MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch).
@@ -124,7 +124,6 @@ It will:
 
 ```typescript
 import { Handler, Context } from "aws-lambda";
-import { stdioServerAdapter } from "mcp-lambda";
 
 const serverParams = {
   command: "npx",
@@ -132,6 +131,9 @@ const serverParams = {
 };
 
 export const handler: Handler = async (event, context: Context) => {
+  // Dynamically import ES module into CommonJS Lambda function
+  const { stdioServerAdapter } = await import("mcp-server-in-aws-lambda");
+
   return await stdioServerAdapter(serverParams, event, context);
 };
 ```
@@ -170,15 +172,28 @@ with the MCP protocol and returns the function's response to the caller.
 import {
   LambdaFunctionParameters,
   LambdaFunctionClientTransport,
-} from "mcp-lambda";
+} from "mcp-server-in-aws-lambda";
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 
 const serverParams: LambdaFunctionParameters = {
   functionName: "mcp-server-time",
   regionName: "us-east-2",
 };
 
+const client = new Client(
+  {
+    name: "my-client",
+    version: "0.0.1",
+  },
+  {
+    capabilities: {
+      sampling: {},
+    },
+  }
+);
+
 const transport = new LambdaFunctionClientTransport(serverParams);
-await this.client.connect(transport);
+await client.connect(transport);
 ```
 
 ### Deploy and run the examples

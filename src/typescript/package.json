@@ -1,5 +1,5 @@
 {
-  "name": "mcp-lambda",
+  "name": "mcp-server-in-aws-lambda",
   "description": "Model Context Protocol SDK for AWS Lambda",
   "version": "0.0.2",
   "type": "module",

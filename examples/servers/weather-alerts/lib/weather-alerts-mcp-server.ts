@@ -15,7 +15,8 @@ export class WeatherAlertsMcpServer extends cdk.Stack {
   ) {
     super(scope, id, props);
 
-    // Package local module as a layer for testing
+    // For testing, the mcp-server-in-aws-lambda package is bundled from local files.
+    // Remove this layer if using the mcp-server-in-aws-lambda package from npm.
     const mcpLambdaLayer = new LayerVersion(this, "McpLambdaLayer", {
       code: Code.fromAsset(path.join(__dirname, "../../../../src/typescript"), {
         bundling: {
@@ -24,8 +25,8 @@ export class WeatherAlertsMcpServer extends cdk.Stack {
             "bash",
             "-c",
             [
-              "mkdir -p /asset-output/nodejs/node_modules/mcp-lambda",
-              `cp -r /asset-input/* /asset-output/nodejs/node_modules/mcp-lambda/`,
+              "mkdir -p /asset-output/nodejs/node_modules/mcp-server-in-aws-lambda",
+              `cp -r /asset-input/* /asset-output/nodejs/node_modules/mcp-server-in-aws-lambda/`,
             ].join(" && "),
           ],
         },
@@ -52,7 +53,9 @@ export class WeatherAlertsMcpServer extends cdk.Stack {
       layers: [mcpLambdaLayer],
       bundling: {
         nodeModules: ["openapi-mcp-server"],
-        externalModules: ["mcp-lambda"],
+        // For testing, the mcp-server-in-aws-lambda package is bundled from local files using the Lambda layer above.
+        // Remove the layer and this externalModules configuration if using the mcp-server-in-aws-lambda package from npm.
+        externalModules: ["mcp-server-in-aws-lambda"],
         commandHooks: {
           beforeBundling(inputDir: string, outputDir: string): string[] {
             return [];
