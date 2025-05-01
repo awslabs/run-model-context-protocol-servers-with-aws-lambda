@@ -53,7 +53,7 @@
     "typescript-eslint": "^8.29.0"
   },
   "dependencies": {
-    "@aws-sdk/client-lambda": "^3.777.0",
+    "@aws-sdk/client-lambda": "^3.799.0",
     "@modelcontextprotocol/sdk": "^1.8.0",
     "@types/aws-lambda": "^8.10.148",
     "winston": "^3.17.0"
