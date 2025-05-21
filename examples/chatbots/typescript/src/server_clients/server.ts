@@ -99,7 +99,7 @@ export abstract class Server {
 
         return {
           toolUseId: toolUseId,
-          content: [{ text: String(result) }],
+          content: [{ text: this.formatText(result) }],
           status: "success",
         };
       } catch (e) {
@@ -123,5 +123,17 @@ export abstract class Server {
 
     // This should never be reached due to the loop above
     throw new Error("Unexpected error in executeTool");
+  }
+
+  formatText(text: unknown): string {
+    if (typeof text === "string") {
+      return text;
+    } else if (Array.isArray(text)) {
+      return text.map((item) => this.formatText(item)).join("\n");
+    } else if (typeof text === "object" && text !== null) {
+      return JSON.stringify(text);
+    } else {
+      return String(text);
+    }
   }
 }
