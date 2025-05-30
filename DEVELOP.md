@@ -9,10 +9,13 @@ and using an example chatbot client to communicate with those Lambda-based MCP s
 The example chatbot client will communicate with three servers:
 
 1. a Lambda function-based 'time' MCP server (Python)
-2. a Lambda function-based 'weather-alerts' MCP server (Typescript)
-3. a [local 'fetch' MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch)
+1. a Lambda function-based MCP server that interacts with Amazon SNS and SQS APIs (Python)
+1. a Lambda function-based 'weather-alerts' MCP server (Typescript)
+1. a [local 'fetch' MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch)
 
 To use the remote 'time' server, you can ask the chatbot questions like "What is the current time?".
+
+To use the remote SNS and SQS server, you can ask the chatbot questions like "How many SQS queues do I have in us-east-1?".
 
 To use the remote 'weather-alerts' server, you can ask the chatbot questions like "Are there any weather alerts right now?".
 
@@ -35,6 +38,14 @@ aws iam create-role \
 aws iam attach-role-policy \
   --role-name mcp-lambda-example-servers \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+aws iam attach-role-policy \
+  --role-name mcp-lambda-example-servers \
+  --policy-arn arn:aws:iam::aws:policy/service-role/AmazonSNSReadOnlyAccess
+
+aws iam attach-role-policy \
+  --role-name mcp-lambda-example-servers \
+  --policy-arn arn:aws:iam::aws:policy/service-role/AmazonSQSReadOnlyAccess
 
 cdk bootstrap aws://<aws account id>/us-east-2
 ```
@@ -71,12 +82,22 @@ npm run build
 npm link
 ```
 
-### Deploy the example Python server
+### Deploy the example Python servers
 
 Deploy the Lambda 'time' function - the deployed function will be named "mcp-server-time".
 
 ```bash
 cd examples/servers/time/
+
+uv pip install -r requirements.txt
+
+cdk deploy --app 'python3 cdk_stack.py'
+```
+
+Deploy the Lambda function for the SNS and SQS MCP server - the deployed function will be named "mcp-server-sns-sqs".
+
+```bash
+cd examples/servers/sns-sqs/
 
 uv pip install -r requirements.txt
 

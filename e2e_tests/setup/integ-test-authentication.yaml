@@ -141,6 +141,9 @@ Resources:
       RoleName: mcp-lambda-example-servers
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        # For the SNS-SQS MCP server
+        - arn:aws:iam::aws:policy/service-role/AmazonSNSReadOnlyAccess
+        - arn:aws:iam::aws:policy/service-role/AmazonSQSReadOnlyAccess
       AssumeRolePolicyDocument:
         Statement:
           - Effect: Allow

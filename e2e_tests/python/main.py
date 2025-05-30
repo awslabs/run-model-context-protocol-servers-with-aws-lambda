@@ -78,6 +78,7 @@ async def main() -> None:
     user_utterances = [
         "Hello!",
         "What is the current time in Seattle?",
+        "How many SQS queues do I have in us-east-1?",
         "Are there any weather alerts right now?",
         "Who is Tom Cruise?",
     ]

@@ -1,5 +1,4 @@
-# Pin this version to cover testing MCP dependency < 1.8.0
-mcp-server-time==0.6.2
+awslabs.amazon-sns-sqs-mcp-server==2.0.2
 
 # For testing, this module is installed from local files.
 # Uncomment this line to build using the module from PyPi

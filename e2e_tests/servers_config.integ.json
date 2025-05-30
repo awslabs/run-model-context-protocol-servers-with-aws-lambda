@@ -10,6 +10,10 @@
       "functionName": "mcp-server-time-INTEG_TEST_ID",
       "region": "us-east-2"
     },
+    "sns-sqs": {
+      "functionName": "mcp-server-sns-sqs-INTEG_TEST_ID",
+      "region": "us-east-2"
+    },
     "weatherAlerts": {
       "functionName": "mcp-server-weather-alerts-INTEG_TEST_ID",
       "region": "us-east-2"

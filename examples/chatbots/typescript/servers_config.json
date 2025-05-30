@@ -10,6 +10,10 @@
       "functionName": "mcp-server-time",
       "region": "us-east-2"
     },
+    "sns-sqs": {
+      "functionName": "mcp-server-sns-sqs",
+      "region": "us-east-2"
+    },
     "weatherAlerts": {
       "functionName": "mcp-server-weather-alerts",
       "region": "us-east-2"
