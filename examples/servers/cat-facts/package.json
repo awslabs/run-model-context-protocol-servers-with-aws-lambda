@@ -1,0 +1,23 @@
+{
+  "name": "cat-facts",
+  "version": "0.2.1",
+  "main": "lib/cat-facts-mcp-server.js",
+  "types": "lib/cat-facts-mcp-server.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.24",
+    "aws-cdk": "2.1017.0",
+    "cdk-nag": "^2.36.2",
+    "typescript": "~5.8.3"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.149",
+    "aws-cdk-lib": "2.199.0",
+    "constructs": "^10.0.0",
+    "openapi-mcp-server": "^1.2.0-beta05"
+  }
+}

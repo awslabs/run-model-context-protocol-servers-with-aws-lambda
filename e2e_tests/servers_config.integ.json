@@ -17,6 +17,10 @@
     "mcpdoc": {
       "functionName": "mcp-server-mcpdoc-INTEG_TEST_ID",
       "region": "us-east-2"
+    },
+    "catFacts": {
+      "functionName": "mcp-server-cat-facts-INTEG_TEST_ID",
+      "region": "us-east-2"
     }
   }
 }

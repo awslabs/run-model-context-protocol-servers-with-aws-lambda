@@ -17,6 +17,10 @@
     "mcpdoc": {
       "functionName": "mcp-server-mcpdoc",
       "region": "us-east-2"
+    },
+    "catFacts": {
+      "functionName": "mcp-server-cat-facts",
+      "region": "us-east-2"
     }
   }
 }
