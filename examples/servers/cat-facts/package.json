@@ -18,6 +18,6 @@
     "@types/aws-lambda": "^8.10.149",
     "aws-cdk-lib": "2.199.0",
     "constructs": "^10.0.0",
-    "openapi-mcp-server": "^1.2.0-beta05"
+    "openapi-mcp-server": "^2.0.3"
   }
 }
