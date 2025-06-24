@@ -40,6 +40,42 @@ jobs:
         env:
           CDK_DEFAULT_ACCOUNT: "000000000000"
 
+  check_mcpdoc_server:
+    name: Check Python-based MCP Doc Server
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Set up Typescript"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "src/python/.python-version"
+
+      - name: Install CDK CLI
+        run: npm install -g aws-cdk
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        working-directory: ./examples/servers/mcpdoc
+
+      - uses: pypa/gh-action-pip-audit@v1.1.0
+        with:
+          inputs: ./examples/servers/mcpdoc/requirements.txt
+
+      - name: Synthesize CDK stack
+        run: cdk synth --app 'python3 cdk_stack.py'
+        working-directory: ./examples/servers/mcpdoc
+        env:
+          CDK_DEFAULT_ACCOUNT: "000000000000"
+
   check_weather_alerts_server:
     name: Check Typescript-based Weather Alerts Server
     runs-on: ubuntu-latest

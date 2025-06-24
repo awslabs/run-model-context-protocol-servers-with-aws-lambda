@@ -17,6 +17,11 @@ cd ../../examples/servers/time
 uv pip install -r requirements.txt
 cdk deploy --app 'python3 cdk_stack.py'
 
+# Deploy Python-based mcpdoc MCP server
+cd ../mcpdoc
+uv pip install -r requirements.txt
+cdk deploy --app 'python3 cdk_stack.py'
+
 # Deploy Typescript-based example MCP server
 cd ../../../src/typescript/
 npm ci

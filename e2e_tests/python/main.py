@@ -79,6 +79,7 @@ async def main() -> None:
         "Hello!",
         "What is the current time in Seattle?",
         "Are there any weather alerts right now?",
+        "What documentation sources can you use to answer questions?",
         "Who is Tom Cruise?",
     ]
     chat_session = ChatSession(servers, llm_client, user_utterances)

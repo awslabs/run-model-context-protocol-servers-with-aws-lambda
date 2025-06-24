@@ -33,6 +33,7 @@ async function main(): Promise<void> {
     "Hello!",
     "What is the current time in Seattle?",
     "Are there any weather alerts right now?",
+    "What documentation sources can you use to answer questions?",
     "Who is Tom Cruise?",
   ];
 

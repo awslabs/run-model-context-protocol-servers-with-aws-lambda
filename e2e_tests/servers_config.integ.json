@@ -13,6 +13,10 @@
     "weatherAlerts": {
       "functionName": "mcp-server-weather-alerts-INTEG_TEST_ID",
       "region": "us-east-2"
+    },
+    "mcpdoc": {
+      "functionName": "mcp-server-mcpdoc-INTEG_TEST_ID",
+      "region": "us-east-2"
     }
   }
 }

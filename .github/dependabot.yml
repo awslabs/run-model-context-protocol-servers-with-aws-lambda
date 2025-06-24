@@ -50,6 +50,26 @@ updates:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
 
+  - package-ecosystem: pip
+    directory: "/examples/servers/mcpdoc"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    commit-message:
+      prefix: "chore(deps)"
+    rebase-strategy: "disabled"
+
+  - package-ecosystem: pip
+    directory: "/examples/servers/mcpdoc/function"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    commit-message:
+      prefix: "chore(deps)"
+    rebase-strategy: "disabled"
+
   - package-ecosystem: npm
     directory: "/src/typescript"
     schedule:

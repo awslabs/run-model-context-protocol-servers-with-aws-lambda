@@ -15,6 +15,7 @@ queue_rules:
       - status-success=Check Python library
       - status-success=Check Typescript library
       - status-success=Check Python-based Time Server
+      - status-success=Check Python-based MCP Doc Server
       - status-success=Check Typescript-based Weather Alerts Server
       - status-success=Check Typescript chatbot
     merge_method: squash
