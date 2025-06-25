@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.0](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/compare/v0.2.1...v0.3.0) (2025-06-24)
+
+### Features
+
+* **Streamable HTTP Transport**: Added new HTTP transport implementation for MCP with AWS Lambda
+  - Native HTTP communication without stdio bridging
+  - Built-in AWS SigV4 authentication
+  - Real-time streaming support with Server-Sent Events (SSE)
+  - Context passing mechanism for Lambda event data
+  - Comprehensive error handling and retry logic
+  - Support for both stateful and stateless modes
+  - Complete examples and documentation
+
 ## [0.2.1](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/compare/v0.2.0...v0.2.1) (2025-06-03)
 
 ## [0.2.0](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/compare/v0.1.6...v0.2.0) (2025-05-30)

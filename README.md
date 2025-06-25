@@ -49,6 +49,8 @@ flowchart LR
 - This package currently supports MCP servers and clients written in Python and Typescript.
   Other languages such as Kotlin are not supported.
 - The server adapters only adapt stdio MCP servers, not servers written for other protocols such as SSE.
+- **NEW**: This package now includes a Streamable HTTP transport for MCP that supports real-time streaming
+  with Server-Sent Events (SSE) for stateless applications that need streaming notifications during request processing.
 - The server adapters do not maintain any MCP server state across Lambda function invocations.
   Only stateless MCP servers are a good fit for using this adapter. For example, MCP servers
   that invoke stateless tools like the [time MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/time)
@@ -199,6 +201,61 @@ const client = new Client(
 const transport = new LambdaFunctionClientTransport(serverParams);
 await client.connect(transport);
 ```
+
+### Streamable HTTP Transport Example
+
+This project now includes a Streamable HTTP transport implementation that supports real-time streaming with Server-Sent Events (SSE). This is useful for applications that need to receive streaming notifications during MCP tool execution.
+
+The [streamable HTTP example](examples/streamable-http/) demonstrates:
+
+- **Server**: Express.js server with MCP streaming support
+- **Client**: TypeScript client that handles real-time notifications
+- **Tools**: Calculator tool and streaming counter tool with live notifications
+
+#### Quick Start
+
+```bash
+cd examples/streamable-http
+npm install
+npm run dev:server  # Start server on http://localhost:8080
+npm run dev:client  # Run client demo in another terminal
+```
+
+#### Server Usage
+
+```typescript
+import { createMCPServer } from './server/mcp-server-factory.js';
+import { StreamableHTTPServerTransport } from '@aws/mcp-streamable-http-transport';
+
+const mcpServer = createMCPServer();
+const transport = new StreamableHTTPServerTransport({
+  sessionIdGenerator: () => undefined,
+  enableJsonResponse: false
+});
+
+await mcpServer.connect(transport);
+```
+
+#### Client Usage
+
+```typescript
+import { MCPStreamingClient } from './client/mcp-streaming-client.js';
+
+const client = new MCPStreamingClient({
+  serverName: 'mcp-streaming-server',
+  serverVersion: '1.0.0',
+  endpoint: 'http://localhost:8080/mcp'
+});
+
+await client.connect();
+
+// Execute streaming tool with real-time notifications
+const result = await client.executeStreamingTool('count-with-notifications', {
+  maxCount: 5
+});
+```
+
+The streaming client automatically handles real-time notifications and displays them as they arrive from the server.
 
 ### Deploy and run the examples
 

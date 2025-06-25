@@ -1,0 +1,74 @@
+{
+  "name": "@aws/mcp-streamable-http-transport",
+  "version": "0.1.0",
+  "description": "Streamable HTTP transport implementation for Model Context Protocol (MCP) with AWS Lambda support",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda.git",
+    "directory": "src/typescript-streamable-http"
+  },
+  "homepage": "https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "aws",
+    "lambda",
+    "transport",
+    "streamable-http",
+    "serverless"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf node_modules",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build": "npm run build:esm && npm run build:cjs",
+    "watch": "tsc -w",
+    "prepublishOnly": "npm run build && npm run test",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "!**/__tests__/**",
+    "README.md"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@aws-sdk/credential-provider-node": "^3.178.0",
+    "@aws-sdk/protocol-http": "^3.374.0",
+    "@aws-sdk/types": "^3.374.0",
+    "@smithy/signature-v4": "^5.0.2",
+    "@aws-crypto/sha256-js": "^5.2.0",
+    "content-type": "^1.0.5",
+    "raw-body": "^3.0.0",
+    "eventsource-parser": "^3.0.0",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "@types/jest": "^29.5.12",
+    "@types/content-type": "^1.1.8",
+    "jest": "^29.7.0",
+    "@tsconfig/node18": "^18.2.4",
+    "ts-jest": "^29.2.4",
+    "typescript": "^5.8.3",
+    "eslint": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "mcp-streaming-transport-production",
+  "version": "1.0.0",
+  "description": "Production-ready MCP Streaming HTTP transport with real-time notifications",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start:server": "node dist/server/mcp-streaming-server.js",
+    "start:client": "node dist/client/mcp-streaming-client.js",
+    "dev:server": "tsx server/mcp-streaming-server.ts",
+    "dev:client": "tsx client/mcp-streaming-client.ts",
+    "test:streaming": "npm run build && npm run start:server & sleep 3 && npm run start:client",
+    "clean": "rm -rf dist/",
+    "lint": "echo 'Linting not configured'",
+    "test": "npm run test:streaming"
+  },
+  "dependencies": {
+    "@aws/mcp-streamable-http-transport": "file:../../src/typescript-streamable-http",
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "@tsconfig/node18": "^18.2.4",
+    "express": "^4.18.2",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^22.14.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.8.3"
+  }
+}
