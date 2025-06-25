@@ -9,7 +9,7 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "^3.817.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.835.0",
     "@modelcontextprotocol/sdk": "^1.12.1",
     "readline-sync": "^1.4.10",
     "winston": "^3.17.0"
