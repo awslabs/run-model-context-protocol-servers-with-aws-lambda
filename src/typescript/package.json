@@ -55,7 +55,7 @@
   "dependencies": {
     "@aws-sdk/client-lambda": "^3.835.0",
     "@modelcontextprotocol/sdk": "^1.12.1",
-    "@types/aws-lambda": "^8.10.149",
+    "@types/aws-lambda": "^8.10.150",
     "winston": "^3.17.0"
   }
 }
