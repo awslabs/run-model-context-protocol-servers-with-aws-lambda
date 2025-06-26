@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.835.0",
-    "@modelcontextprotocol/sdk": "^1.12.1",
+    "@modelcontextprotocol/sdk": "^1.13.1",
     "readline-sync": "^1.4.10",
     "winston": "^3.17.0"
   },
