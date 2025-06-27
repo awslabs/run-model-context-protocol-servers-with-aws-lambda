@@ -14,7 +14,7 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.29.0",
+    "@eslint/js": "^9.30.0",
     "@types/node": "^24.0.4",
     "eslint": "^9.29.0",
     "typescript": "^5.8.3",
