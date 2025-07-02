@@ -1,6 +1,6 @@
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
-import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
+import { NodejsFunction, OutputFormat } from "aws-cdk-lib/aws-lambda-nodejs";
 import {
   Code,
   LayerVersion,
@@ -59,6 +59,8 @@ export class CatFactsMcpServer extends cdk.Stack {
       },
       layers: [mcpLambdaLayer],
       bundling: {
+        format: OutputFormat.ESM,
+        mainFields: ["module", "main"],
         nodeModules: ["@ivotoby/openapi-mcp-server"],
         // For testing, the @aws/run-mcp-servers-with-aws-lambda package is bundled from local files using the Lambda layer above.
         // Remove the layer and this externalModules configuration if using the @aws/run-mcp-servers-with-aws-lambda package from npm.

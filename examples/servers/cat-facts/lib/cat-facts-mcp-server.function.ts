@@ -1,4 +1,13 @@
-import { Handler, Context } from "aws-lambda";
+import {
+  Handler,
+  Context,
+  APIGatewayProxyEventV2WithIAMAuthorizer,
+  APIGatewayProxyResultV2,
+} from "aws-lambda";
+import {
+  LambdaFunctionURLEventHandler,
+  StdioServerAdapterRequestHandler,
+} from "@aws/run-mcp-servers-with-aws-lambda";
 
 const serverParams = {
   command: "node",
@@ -11,11 +20,16 @@ const serverParams = {
   ],
 };
 
-export const handler: Handler = async (event, context: Context) => {
-  // Dynamically import ES module into CommonJS Lambda function
-  const { stdioServerAdapter } = await import(
-    "@aws/run-mcp-servers-with-aws-lambda"
-  );
+const requestHandler = new LambdaFunctionURLEventHandler(
+  new StdioServerAdapterRequestHandler(serverParams)
+);
 
-  return await stdioServerAdapter(serverParams, event, context);
+export const handler: Handler = async (
+  event: APIGatewayProxyEventV2WithIAMAuthorizer,
+  context: Context
+): Promise<APIGatewayProxyResultV2> => {
+  // To customize the handler based on the caller's identity, you can use:
+  // event.requestContext.authorizer.iam
+
+  return requestHandler.handle(event, context);
 };
