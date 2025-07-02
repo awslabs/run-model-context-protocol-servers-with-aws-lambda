@@ -19,7 +19,7 @@
         "tags": ["Facts"],
         "summary": "Get Random Cat Fact",
         "description": "Returns a random fact about cats",
-        "operationId": "getRandomFact",
+        "operationId": "getRandomCatFact",
         "parameters": [
           {
             "name": "max_length",

@@ -41,6 +41,13 @@ npm link @aws/run-mcp-servers-with-aws-lambda
 npm run build
 cdk deploy --app 'node lib/cat-facts-mcp-server.js'
 
+# Deploy Typescript-based dog-facts MCP server
+cd ../dog-facts/
+npm ci
+npm link @aws/run-mcp-servers-with-aws-lambda
+npm run build
+cdk deploy --app 'node lib/dog-facts-mcp-server.js'
+
 # Configure integ tests
 cd ../../../e2e_tests/
 sed "s/INTEG_TEST_ID/$INTEG_TEST_ID/g" servers_config.integ.json > python/servers_config.json

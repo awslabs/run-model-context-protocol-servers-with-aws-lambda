@@ -195,3 +195,45 @@ jobs:
         working-directory: ./examples/servers/cat-facts
         env:
           CDK_DEFAULT_ACCOUNT: "000000000000"
+
+  check_dog_facts_server:
+    name: Check Typescript-based Dog Facts Server
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Set up Typescript"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install CDK CLI
+        run: npm install -g aws-cdk
+
+      - name: Build and link local package
+        run: |
+          npm ci
+          npm audit --audit-level critical
+          npm run build
+          npm link
+        working-directory: ./src/typescript
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm audit --audit-level critical
+          npm link @aws/run-mcp-servers-with-aws-lambda
+        working-directory: ./examples/servers/dog-facts
+
+      - name: Build
+        run: npm run build
+        working-directory: ./examples/servers/dog-facts
+
+      - name: Synthesize CDK stack
+        run: cdk synth --app 'node lib/dog-facts-mcp-server.js'
+        working-directory: ./examples/servers/dog-facts
+        env:
+          CDK_DEFAULT_ACCOUNT: "000000000000"

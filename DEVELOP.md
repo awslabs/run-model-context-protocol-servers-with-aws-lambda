@@ -12,7 +12,8 @@ The example chatbot client will communicate with five servers:
 2. a Lambda function-based **mcpdoc** MCP server (Python). Ask questions like "What documentation sources do you have access to?".
 3. a Lambda function-based **weather-alerts** MCP server (Typescript). Ask questions like "Are there any weather alerts right now?".
 4. a Lambda function-based **cat-facts** MCP server (Typescript). Ask questions like "Tell me something about cats".
-5. a [local **fetch** MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch). Ask questions like "Who is Tom Cruise?".
+5. a Lambda function-based **dog-facts** MCP server (Typescript). Ask questions like "Tell me something about dogs".
+6. a [local **fetch** MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch). Ask questions like "Who is Tom Cruise?".
 
 ### Setup
 
@@ -148,6 +149,20 @@ npm link @aws/run-mcp-servers-with-aws-lambda
 npm run build
 
 cdk deploy --app 'node lib/cat-facts-mcp-server.js'
+```
+
+Deploy the Lambda 'dog-facts' function - the deployed function will be named "mcp-server-dog-facts".
+
+```bash
+cd examples/servers/dog-facts/
+
+npm install
+
+npm link @aws/run-mcp-servers-with-aws-lambda
+
+npm run build
+
+cdk deploy --app 'node lib/dog-facts-mcp-server.js'
 ```
 
 ### Run the example Python client

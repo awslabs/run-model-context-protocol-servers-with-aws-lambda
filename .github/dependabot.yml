@@ -121,6 +121,16 @@ updates:
     rebase-strategy: "disabled"
 
   - package-ecosystem: npm
+    directory: "/examples/servers/dog-facts"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    commit-message:
+      prefix: "chore(deps)"
+    rebase-strategy: "disabled"
+
+  - package-ecosystem: npm
     directory: "/e2e_tests/typescript"
     schedule:
       interval: monthly

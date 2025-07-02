@@ -1,0 +1,23 @@
+{
+  "name": "dog-facts",
+  "version": "0.2.1",
+  "main": "lib/dog-facts-mcp-server.js",
+  "types": "lib/dog-facts-mcp-server.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "24.0.6",
+    "aws-cdk": "2.1019.2",
+    "cdk-nag": "^2.36.25",
+    "typescript": "~5.8.3"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.149",
+    "aws-cdk-lib": "2.202.0",
+    "constructs": "^10.0.0",
+    "@ivotoby/openapi-mcp-server": "1.7.0"
+  }
+}

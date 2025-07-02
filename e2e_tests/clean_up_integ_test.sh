@@ -23,3 +23,6 @@ cdk destroy --force --app 'node lib/weather-alerts-mcp-server.js'
 
 cd ../cat-facts/
 cdk destroy --force --app 'node lib/cat-facts-mcp-server.js'
+
+cd ../dog-facts/
+cdk destroy --force --app 'node lib/dog-facts-mcp-server.js'

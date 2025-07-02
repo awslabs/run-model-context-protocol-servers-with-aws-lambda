@@ -51,6 +51,14 @@
       "type": "json"
     },
     {
+      "filename": "examples/servers/dog-facts/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "examples/servers/dog-facts/package-lock.json",
+      "type": "json"
+    },
+    {
       "filename": "examples/chatbots/typescript/package.json",
       "type": "json"
     },
