@@ -14,6 +14,10 @@ from server_clients.lambda_function_url import (
     LambdaFunctionUrlClient,
     LambdaFunctionUrlConfig,
 )
+from server_clients.interactive_oauth import (
+    InteractiveOAuthClient,
+    InteractiveOAuthConfig,
+)
 
 # Configure logging
 logging.basicConfig(
@@ -77,14 +81,20 @@ async def main() -> None:
     """Initialize and run the chat session."""
     config = Configuration()
     server_config = config.load_config("servers_config.json")
+
+    # Initialize stdio servers
     servers = [
         StdioServer(name, srv_config)
-        for name, srv_config in server_config["stdioServers"].items()
+        for name, srv_config in server_config.get("stdioServers", {}).items()
     ]
+
+    # Initialize lambda function servers
     servers.extend(
         [
             LambdaFunctionClient(name, srv_config)
-            for name, srv_config in server_config["lambdaFunctionServers"].items()
+            for name, srv_config in server_config.get(
+                "lambdaFunctionServers", {}
+            ).items()
         ]
     )
 
@@ -95,6 +105,14 @@ async def main() -> None:
             for name, srv_config in server_config.get(
                 "lambdaFunctionUrls", {}
             ).items()
+        ]
+    )
+
+    # Initialize interactive OAuth servers
+    servers.extend(
+        [
+            InteractiveOAuthClient(name, InteractiveOAuthConfig(**srv_config))
+            for name, srv_config in server_config.get("oAuthServers", {}).items()
         ]
     )
 
