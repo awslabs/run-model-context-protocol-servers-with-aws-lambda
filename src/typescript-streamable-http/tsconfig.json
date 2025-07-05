@@ -1,0 +1,15 @@
+{
+  "extends": ["@tsconfig/node18"],
+  "compilerOptions": {
+    "target": "ES2020",
+    "declaration": true,
+    "rootDir": "./src",
+    "sourceMap": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true
+  },
+  "include": ["src"]
+}
