@@ -194,6 +194,7 @@ const functionUrl = new FunctionUrl(this, 'MCPFunctionUrl', {
     function: mcpFunction,
     authType: FunctionUrlAuthType.AWS_IAM,
     cors: {
+        /* Note - '*' here is for POC only, this may not pass security checks for enterprises and they may need to allowlist specific domains in some scenarios */
         allowedOrigins: ['*'],
         allowedMethods: [HttpMethod.ALL],
         allowedHeaders: ['*']

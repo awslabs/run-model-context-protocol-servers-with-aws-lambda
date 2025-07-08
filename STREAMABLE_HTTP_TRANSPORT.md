@@ -17,7 +17,7 @@ The original stdio-based approach requires creating child processes inside Lambd
 
 #### New Streamable HTTP Approach
 ```
-[MCP Client] → [HTTP POST with SigV4] → [Lambda Function URL]
+[MCP Client] → [HTTP POST with SigV4] → [HTTP Endpoint]
     → [StreamableHTTPServerTransport] → [MCP Tools with Context]
     → [SSE/JSON Response] → [MCP Client]
 ```
@@ -25,10 +25,10 @@ The original stdio-based approach requires creating child processes inside Lambd
 ## Key Advantages
 
 - Better performance: No child process overhead, faster cold starts
-- Native AWS security: Built-in SigV4 authentication
+- Flexible authentication: Built-in custom auth supporting SigV4, OAuth, transitive auth, or enterprise-specific frameworks
 - Real-time streaming: Server-Sent Events for notifications
-- Context passing: Clean mechanism to pass Lambda event data to tools
-- Cost effective: Direct Lambda Function URLs, no API Gateway needed
+- Context passing: Clean mechanism to pass HTTP request metadata to tools
+- Cost effective: Direct Lambda Function URLs reduce latency and cost (though API Gateway can be added for additional features like rate limiting, caching, and request transformation)
 - Comprehensive error handling, retry logic, session management
 
 ## Quick Start

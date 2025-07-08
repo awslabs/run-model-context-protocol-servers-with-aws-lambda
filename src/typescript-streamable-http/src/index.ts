@@ -7,20 +7,20 @@
  */
 
 export {
-    StreamableHTTPClientTransport,
-    StreamableHTTPError
+    SigV4StreamableHTTPClientTransport,
+    SigV4StreamableHTTPError
 } from './streaming/client/streamableHttp';
 
 export type {
-    StreamableHTTPClientTransportOptions
+    SigV4StreamableHTTPClientTransportOptions
 } from './streaming/client/streamableHttp';
 
 export {
-    StreamableHTTPServerTransport
+    SigV4StreamableHTTPServerTransport
 } from './streaming/server/streamableHttp';
 
 export type {
-    StreamableHTTPServerTransportOptions
+    SigV4StreamableHTTPServerTransportOptions
 } from './streaming/server/streamableHttp';
 
 export {

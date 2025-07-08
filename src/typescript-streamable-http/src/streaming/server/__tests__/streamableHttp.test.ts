@@ -1,5 +1,5 @@
 import { IncomingMessage, ServerResponse } from "node:http";
-import { StreamableHTTPServerTransport } from "../streamableHttp";
+import { SigV4StreamableHTTPServerTransport } from "../streamableHttp";
 import { JSONRPCMessage } from '@modelcontextprotocol/sdk/types.js';
 import { Readable } from "node:stream";
 import { randomUUID } from "node:crypto";
@@ -37,13 +37,13 @@ function createMockResponse(): jest.Mocked<ServerResponse> {
     return response;
 }
 
-describe("StreamableHTTPServerTransport", () => {
-    let transport: StreamableHTTPServerTransport;
+describe("SigV4StreamableHTTPServerTransport", () => {
+    let transport: SigV4StreamableHTTPServerTransport;
     let mockResponse: jest.Mocked<ServerResponse>;
     let mockRequest: string;
 
     beforeEach(() => {
-        transport = new StreamableHTTPServerTransport({
+        transport = new SigV4StreamableHTTPServerTransport({
             sessionIdGenerator: () => randomUUID(),
         });
         mockResponse = createMockResponse();
@@ -272,7 +272,7 @@ describe("StreamableHTTPServerTransport", () => {
 
         it("should reject requests to uninitialized server", async () => {
             // Create a new transport that hasn't been initialized
-            const uninitializedTransport = new StreamableHTTPServerTransport({
+            const uninitializedTransport = new SigV4StreamableHTTPServerTransport({
                 sessionIdGenerator: () => randomUUID(),
             });
 
@@ -336,11 +336,11 @@ describe("StreamableHTTPServerTransport", () => {
         });
     });
     describe("Mode without state management", () => {
-        let transportWithoutState: StreamableHTTPServerTransport;
+        let transportWithoutState: SigV4StreamableHTTPServerTransport;
         let mockResponse: jest.Mocked<ServerResponse>;
 
         beforeEach(async () => {
-            transportWithoutState = new StreamableHTTPServerTransport({ sessionIdGenerator: () => undefined });
+            transportWithoutState = new SigV4StreamableHTTPServerTransport({ sessionIdGenerator: () => undefined });
             mockResponse = createMockResponse();
 
             // Initialize the transport for each test
@@ -502,7 +502,7 @@ describe("StreamableHTTPServerTransport", () => {
         });
 
         it("should handle initialization in mode without state management", async () => {
-            const transportWithoutState = new StreamableHTTPServerTransport({ sessionIdGenerator: () => undefined });
+            const transportWithoutState = new SigV4StreamableHTTPServerTransport({ sessionIdGenerator: () => undefined });
 
             // Initialize message
             const initializeMessage: JSONRPCMessage = {
@@ -1205,11 +1205,11 @@ describe("StreamableHTTPServerTransport", () => {
     });
 
     describe("JSON Response Mode", () => {
-        let jsonResponseTransport: StreamableHTTPServerTransport;
+        let jsonResponseTransport: SigV4StreamableHTTPServerTransport;
         let mockResponse: jest.Mocked<ServerResponse>;
 
         beforeEach(async () => {
-            jsonResponseTransport = new StreamableHTTPServerTransport({
+            jsonResponseTransport = new SigV4StreamableHTTPServerTransport({
                 sessionIdGenerator: () => randomUUID(),
                 enableJsonResponse: true,
             });

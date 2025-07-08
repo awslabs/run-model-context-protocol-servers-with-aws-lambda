@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file. See [commit
   - Native HTTP communication without stdio bridging
   - Built-in AWS SigV4 authentication
   - Real-time streaming support with Server-Sent Events (SSE)
-  - Context passing mechanism for Lambda event data
+  - Context passing mechanism for HTTP request metadata
   - Comprehensive error handling and retry logic
   - Support for both stateful and stateless modes
   - Complete examples and documentation

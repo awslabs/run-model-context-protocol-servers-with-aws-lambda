@@ -119,7 +119,7 @@ export function registerMCPTools(mcpServer: McpServer): void {
       }
 
       const executionTime = Date.now() - startTime;
-      const completionMessage = `✅ Finished counting to ${maxCount}`;
+      const completionMessage = `Finished counting to ${maxCount}`;
 
       return {
         content: [{

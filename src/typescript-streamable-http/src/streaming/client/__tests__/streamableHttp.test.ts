@@ -8,9 +8,9 @@ jest.mock("@aws-sdk/credential-provider-node", () => ({
 }));
 
 import {
-  StreamableHTTPClientTransport,
-  StreamableHTTPError,
-  StreamableHTTPClientTransportOptions
+  SigV4StreamableHTTPClientTransport,
+  SigV4StreamableHTTPError,
+  SigV4StreamableHTTPClientTransportOptions
 } from "../streamableHttp";
 import { JSONRPCMessage } from "@modelcontextprotocol/sdk/types.js";
 
@@ -24,7 +24,7 @@ const mockCredentials = {
 // Mock credentials provider
 const mockCredentialsProvider = () => Promise.resolve(mockCredentials);
 
-let transport: StreamableHTTPClientTransport;
+let transport: SigV4StreamableHTTPClientTransport;
 let mockFetch: jest.SpiedFunction<typeof global.fetch>;
 let mockSigner: any;
 
@@ -49,7 +49,7 @@ const createMockResponse = (body: any, options: ResponseInit = {}) => {
   );
 };
 
-describe("StreamableHTTPClientTransport", () => {
+describe("SigV4StreamableHTTPClientTransport", () => {
   beforeEach(() => {
     // Clear all mocks before each test
     jest.clearAllMocks();
@@ -70,7 +70,7 @@ describe("StreamableHTTPClientTransport", () => {
     };
     
     // Create transport instance with mock signer
-    transport = new StreamableHTTPClientTransport(
+    transport = new SigV4StreamableHTTPClientTransport(
       new URL("https://example.com/mcp"),
       {
         credentials: mockCredentialsProvider,
@@ -91,12 +91,12 @@ describe("StreamableHTTPClientTransport", () => {
 
   describe("Basic Transport Operations", () => {
     it("should create transport with required options", () => {
-      expect(transport).toBeInstanceOf(StreamableHTTPClientTransport);
+      expect(transport).toBeInstanceOf(SigV4StreamableHTTPClientTransport);
     });
 
     it("should throw error for invalid URL", () => {
       expect(() => {
-        new StreamableHTTPClientTransport(
+        new SigV4StreamableHTTPClientTransport(
           new URL("invalid-url"),
           { credentials: mockCredentialsProvider, _signer: mockSigner },
           "us-east-1",
@@ -109,7 +109,7 @@ describe("StreamableHTTPClientTransport", () => {
       // When _signer is provided, credentials can be undefined
       // This test should pass without throwing since we're injecting a mock signer
       expect(() => {
-        new StreamableHTTPClientTransport(
+        new SigV4StreamableHTTPClientTransport(
           new URL("https://example.com/mcp"),
           { credentials: undefined as any, _signer: mockSigner },
           "us-east-1",
@@ -119,14 +119,14 @@ describe("StreamableHTTPClientTransport", () => {
     });
 
     it("should set default timeout", () => {
-      const defaultTransport = new StreamableHTTPClientTransport(
+      const defaultTransport = new SigV4StreamableHTTPClientTransport(
         new URL("https://example.com/mcp"),
         { credentials: mockCredentialsProvider, _signer: mockSigner },
         "us-east-1",
         "lambda"
       );
       
-      expect(defaultTransport).toBeInstanceOf(StreamableHTTPClientTransport);
+      expect(defaultTransport).toBeInstanceOf(SigV4StreamableHTTPClientTransport);
     });
   });
 
@@ -347,7 +347,7 @@ data: {"jsonrpc":"2.0","id":1,"result":{"data":"done"}}
 
       mockFetch.mockResolvedValue(xmlResponse);
 
-      await expect(transport.send(message)).rejects.toThrow(StreamableHTTPError);
+      await expect(transport.send(message)).rejects.toThrow(SigV4StreamableHTTPError);
     });
   });
 
@@ -380,7 +380,7 @@ data: {"jsonrpc":"2.0","id":1,"result":{"data":"done"}}
 
   describe("Authentication and Headers", () => {
     it("should include x-context headers when provided in the opts", async () => {
-      const contextTransport = new StreamableHTTPClientTransport(
+      const contextTransport = new SigV4StreamableHTTPClientTransport(
         new URL("https://example.com/mcp"),
         {
           credentials: mockCredentialsProvider,
@@ -470,7 +470,7 @@ data: {"jsonrpc":"2.0","id":1,"result":{"data":"done"}}
     it("should stop reconnecting after max retries", async () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation();
       
-      const reconnectTransport = new StreamableHTTPClientTransport(
+      const reconnectTransport = new SigV4StreamableHTTPClientTransport(
         new URL("https://example.com/mcp"),
         {
           credentials: mockCredentialsProvider,

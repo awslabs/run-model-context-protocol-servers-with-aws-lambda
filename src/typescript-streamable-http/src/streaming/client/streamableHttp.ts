@@ -7,21 +7,21 @@ import { Sha256 } from "@aws-crypto/sha256-js";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { AwsCredentialIdentity, Provider } from "@aws-sdk/types";
 
-export class StreamableHTTPError extends Error {
+export class SigV4StreamableHTTPError extends Error {
   constructor(
     public readonly code: number | undefined,
     message: string | undefined
   ) {
-    super(`Streamable HTTP error: ${message}`);
+    super(`SigV4 Streamable HTTP error: ${message}`);
   }
 }
 
 
 // Context can be passed from MCP Client to MCP Server in two ways:
-// 1. Transport Per Request: provide context in StreamableHTTPClientTransportOptions
+// 1. Transport Per Request: provide context in SigV4StreamableHTTPClientTransportOptions
 // 2. Reusing Transport: use setContext() before each call and clearContext() after
 // Note: setContext/clearContext are NOT concurrency-safe
-export type StreamableHTTPClientTransportOptions = {
+export type SigV4StreamableHTTPClientTransportOptions = {
   /**
    * AWS credentials(provider), if not provided, default provider will be used
    */
@@ -45,7 +45,7 @@ export type StreamableHTTPClientTransportOptions = {
   _signer?: SignatureV4;
 };
 
-export class StreamableHTTPClientTransport implements Transport {
+export class SigV4StreamableHTTPClientTransport implements Transport {
   private _abortController?: AbortController;
   private _url: URL;
   private _signer: SignatureV4;
@@ -68,7 +68,7 @@ export class StreamableHTTPClientTransport implements Transport {
 
   constructor(
     url: URL,
-    opts: StreamableHTTPClientTransportOptions,
+    opts: SigV4StreamableHTTPClientTransportOptions,
     region: string,
     service: string
   ) {
@@ -123,7 +123,7 @@ export class StreamableHTTPClientTransport implements Transport {
     });
 
     if (!response.ok) {
-      throw new StreamableHTTPError(
+      throw new SigV4StreamableHTTPError(
         response.status,
         `Failed to open SSE stream: ${response.statusText}`
       );
@@ -238,7 +238,7 @@ export class StreamableHTTPClientTransport implements Transport {
   async start() {
     if (this._abortController) {
       throw new Error(
-        "StreamableHTTPClientTransport already started! If using Client class, note that connect() calls start() automatically."
+        "SigV4StreamableHTTPClientTransport already started! If using Client class, note that connect() calls start() automatically."
       );
     }
 
@@ -281,7 +281,7 @@ export class StreamableHTTPClientTransport implements Transport {
       });
       
       if (!response.ok && response.status !== 405) {
-        throw new StreamableHTTPError(response.status, `Failed to terminate session: ${response.statusText}`);
+        throw new SigV4StreamableHTTPError(response.status, `Failed to terminate session: ${response.statusText}`);
       }
       this._sessionId = undefined;
     } catch (err) {
@@ -379,7 +379,7 @@ export class StreamableHTTPClientTransport implements Transport {
             this.onmessage?.(msg);
           }
         } else {
-          throw new StreamableHTTPError(-1, `Unexpected content type: ${contentType}`);
+          throw new SigV4StreamableHTTPError(-1, `Unexpected content type: ${contentType}`);
         }
       }
     } catch (error) {

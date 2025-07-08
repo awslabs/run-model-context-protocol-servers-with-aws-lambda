@@ -6,8 +6,8 @@ import contentType from "content-type";
 
 const MAXIMUM_MESSAGE_SIZE = "4mb";
 
-// Configuration options for StreamableHTTPServerTransport
-export interface StreamableHTTPServerTransportOptions {
+// Configuration options for SigV4StreamableHTTPServerTransport
+export interface SigV4StreamableHTTPServerTransportOptions {
   /**
    * Function that generates a session ID for the transport.
    * The session ID SHOULD be globally unique and cryptographically secure (e.g., a securely generated UUID, a JWT, or a cryptographic hash)
@@ -29,9 +29,9 @@ export interface StreamableHTTPServerTransportOptions {
   onsessioninitialized?: (sessionId: string) => void;
 }
 
-// Server transport for Streamable HTTP implementing the MCP Streamable HTTP transport specification
+// Server transport for Streamable HTTP implementing the MCP Streamable HTTP transport specification with AWS SigV4 authentication
 // Supports both SSE streaming and direct HTTP responses
-export class StreamableHTTPServerTransport implements Transport {
+export class SigV4StreamableHTTPServerTransport implements Transport {
   // when sessionId is not set (undefined), it means the transport is in stateless mode
   private sessionIdGenerator: () => string | undefined;
   private _started: boolean = false;
@@ -48,7 +48,7 @@ export class StreamableHTTPServerTransport implements Transport {
   onerror?: (error: Error) => void;
   onmessage?: (message: JSONRPCMessage) => void;
 
-  constructor(options: StreamableHTTPServerTransportOptions) {
+  constructor(options: SigV4StreamableHTTPServerTransportOptions) {
     this.sessionIdGenerator = options.sessionIdGenerator;
     this._enableJsonResponse = options.enableJsonResponse ?? false;
     this._onsessioninitialized = options.onsessioninitialized;
