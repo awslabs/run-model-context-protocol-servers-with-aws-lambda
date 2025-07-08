@@ -22,8 +22,9 @@ classifiers = [
 
 dependencies = [
     "anyio>=4.9.0",
-    "aiobotocore>=2.22.0",
-    "mcp>=1.9.2"
+    "aiobotocore>=2.23.0",
+    "mcp>=1.10.1",
+    "aws-lambda-typing>=2.20.0"
 ]
 
 [project.urls]
@@ -36,13 +37,14 @@ stubs = ["types-aiobotocore[lambda]>=2.22.0"]
 [tool.uv]
 resolution = "lowest-direct"
 dev-dependencies = [
-    "pyright>=1.1.401",
-    "pytest>=8.3.5",
-    "ruff>=0.11.12",
+    "pyright>=1.1.402",
+    "pytest>=8.4.1",
+    "ruff>=0.12.2",
     "trio>=0.30.0",
-    "pytest-cov>=6.1.1",
+    "pytest-cov>=6.2.1",
     "pytest-env>=1.1.5",
-    "pre-commit>=4.2.0"
+    "pre-commit>=4.2.0",
+    "pytest-asyncio>=1.0.0"
 ]
 
 [build-system]
@@ -73,6 +75,9 @@ ignore = []
 [tool.ruff]
 line-length = 120
 target-version = "py311"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["E501"]
 
 [tool.pytest.ini_options]
 log_format = "%(asctime)s - %(levelname)s - %(message)s"

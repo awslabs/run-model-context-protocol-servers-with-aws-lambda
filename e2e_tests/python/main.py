@@ -1,5 +1,6 @@
 import asyncio
 import boto3
+from botocore.config import Config
 import json
 import logging
 import os
@@ -9,6 +10,10 @@ from chat_session import ChatSession
 from llm_client import LLMClient
 from server_clients.stdio_server import StdioServer
 from server_clients.lambda_function import LambdaFunctionClient
+from server_clients.lambda_function_url import (
+    LambdaFunctionUrlClient,
+    LambdaFunctionUrlConfig,
+)
 
 # Configure logging
 logging.basicConfig(
@@ -57,7 +62,15 @@ class Configuration:
         Returns:
             The Bedrock client.
         """
-        return boto3.client("bedrock-runtime", region_name=self.region)
+        retry_config = Config(
+            retries={
+                "max_attempts": 10,
+                "mode": "standard",
+            }
+        )
+        return boto3.client(
+            "bedrock-runtime", region_name=self.region, config=retry_config
+        )
 
 
 async def main() -> None:
@@ -74,11 +87,26 @@ async def main() -> None:
             for name, srv_config in server_config["lambdaFunctionServers"].items()
         ]
     )
+
+    # Add Lambda function URL servers if they exist in config
+    if "lambdaFunctionUrlServers" in server_config:
+        servers.extend(
+            [
+                LambdaFunctionUrlClient(name, LambdaFunctionUrlConfig(**srv_config))
+                for name, srv_config in server_config[
+                    "lambdaFunctionUrlServers"
+                ].items()
+            ]
+        )
     llm_client = LLMClient(config.bedrock_client, config.model_id)
     user_utterances = [
         "Hello!",
         "What is the current time in Seattle?",
         "Are there any weather alerts right now?",
+        "List your available documentation sources.",
+        "Tell me a dad joke.",
+        "Tell me a dog fact.",
+        "Tell me a cat fact.",
         "Who is Tom Cruise?",
     ]
     chat_session = ChatSession(servers, llm_client, user_utterances)

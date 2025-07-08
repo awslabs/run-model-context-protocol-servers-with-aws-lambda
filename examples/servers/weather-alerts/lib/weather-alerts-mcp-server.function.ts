@@ -1,8 +1,14 @@
 import { Handler, Context } from "aws-lambda";
 
 const serverParams = {
-  command: "npx",
-  args: ["--offline", "openapi-mcp-server", "./weather-alerts-openapi.json"],
+  command: "node",
+  args: [
+    "/var/task/node_modules/@ivotoby/openapi-mcp-server/bin/mcp-server.js",
+    "--api-base-url",
+    "https://api.weather.gov",
+    "--openapi-spec",
+    "./weather-alerts-openapi.json",
+  ],
 };
 
 export const handler: Handler = async (event, context: Context) => {

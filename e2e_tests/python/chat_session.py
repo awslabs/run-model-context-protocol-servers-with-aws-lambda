@@ -68,9 +68,8 @@ class ChatSession:
             messages = []
 
             for i, user_input in enumerate(self.user_utterances):
-                if i != 0:
-                    print("\n**Pausing 15 seconds to avoid Bedrock throttling**")
-                    await asyncio.sleep(15)
+                # To reduce token use, clear out past messages for each utterance
+                messages = []
 
                 print(f"\nYou: {user_input}")
 

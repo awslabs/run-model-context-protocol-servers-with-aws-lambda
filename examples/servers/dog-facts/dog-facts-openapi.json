@@ -1,0 +1,108 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Dog Facts API",
+    "version": "1.0.0",
+    "description": "An API for facts about dogs",
+    "contact": {
+      "email": "dev@dogapi.dog"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://dogapi.dog/api/v2"
+    }
+  ],
+  "paths": {
+    "/facts": {
+      "get": {
+        "summary": "Get Dog Facts",
+        "description": "Returns facts about dogs",
+        "operationId": "getDogFacts",
+        "tags": ["Facts"],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of facts to return",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DogFactsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Facts not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DogFactsResponse": {
+        "title": "DogFactsResponse model",
+        "description": "Response containing dog facts",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DogFact"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "DogFact": {
+        "title": "DogFact model",
+        "description": "A single dog fact",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "description": "Unique identifier for the fact",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "description": "Type of the resource",
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/DogFactAttributes"
+          }
+        },
+        "type": "object"
+      },
+      "DogFactAttributes": {
+        "title": "DogFactAttributes model",
+        "description": "Attributes of a dog fact",
+        "properties": {
+          "body": {
+            "title": "Body",
+            "description": "The actual fact text",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Facts",
+      "description": "Dog Facts"
+    }
+  ],
+  "security": [[]]
+}

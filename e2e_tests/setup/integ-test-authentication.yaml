@@ -89,10 +89,11 @@ Resources:
               - "s3:GetEncryptionConfiguration"
             Resource:
               - "arn:aws:s3:::cdk*"
-          # Allow integration tests to invoke Lambda functions and Bedrock models
+          # Allow integration tests to invoke Lambda functions, Bedrock models, and retrieve the OAuth client secret
           - Effect: Allow
             Action:
               - "lambda:InvokeFunction"
+              - "lambda:InvokeFunctionUrl"
             Resource:
               - !Sub "arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:mcp-server-*"
           - Effect: Allow
@@ -100,6 +101,11 @@ Resources:
               - "bedrock:InvokeModel"
             Resource:
               - "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"
+          - Effect: Allow
+            Action:
+              - "secretsmanager:GetSecretValue"
+            Resource:
+              - !Sub "arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:mcp-lambda-examples-oauth-client-secret-*"
       Roles:
         - !Ref IntegrationTestRole
 
@@ -115,6 +121,7 @@ Resources:
           - Effect: Allow
             Action:
               - "lambda:*"
+              - "apigateway:*"
               - "logs:*"
             Resource: "*"
           - Effect: Allow

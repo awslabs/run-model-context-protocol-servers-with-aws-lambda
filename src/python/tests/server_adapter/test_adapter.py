@@ -81,6 +81,14 @@ def test_success_list_tools():
                             "title": "echoArguments",
                             "type": "object",
                         },
+                        "outputSchema": {
+                            "properties": {
+                                "result": {"title": "Result", "type": "string"}
+                            },
+                            "required": ["result"],
+                            "title": "echoOutput",
+                            "type": "object",
+                        },
                     }
                 ]
             },
@@ -113,6 +121,7 @@ def test_success_call_tool():
             id=1,
             result={
                 "content": [{"type": "text", "text": "Echo: Hello world"}],
+                "structuredContent": {"result": "Echo: Hello world"},
                 "isError": False,
             },
         )

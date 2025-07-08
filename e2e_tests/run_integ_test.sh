@@ -15,7 +15,17 @@ uv sync --frozen --all-extras --dev
 
 cd ../../examples/servers/time
 uv pip install -r requirements.txt
-cdk deploy --app 'python3 cdk_stack.py'
+cdk deploy --app 'python3 cdk_stack.py' --require-approval never
+
+# Deploy Python-based mcpdoc MCP server
+cd ../mcpdoc
+uv pip install -r requirements.txt
+cdk deploy --app 'python3 cdk_stack.py' --require-approval never
+
+# Deploy Python-based Dad jokes MCP server
+cd ../dad-jokes
+uv pip install -r requirements.txt
+cdk deploy --app 'python3 cdk_stack.py' --require-approval never
 
 # Deploy Typescript-based example MCP server
 cd ../../../src/typescript/
@@ -27,7 +37,21 @@ cd ../../examples/servers/weather-alerts/
 npm ci
 npm link @aws/run-mcp-servers-with-aws-lambda
 npm run build
-cdk deploy --app 'node lib/weather-alerts-mcp-server.js'
+cdk deploy --app 'node lib/weather-alerts-mcp-server.js' --require-approval never
+
+# Deploy Typescript-based cat-facts MCP server
+cd ../cat-facts/
+npm ci
+npm link @aws/run-mcp-servers-with-aws-lambda
+npm run build
+cdk deploy --app 'node lib/cat-facts-mcp-server.js' --require-approval never
+
+# Deploy Typescript-based dog-facts MCP server
+cd ../dog-facts/
+npm ci
+npm link @aws/run-mcp-servers-with-aws-lambda
+npm run build
+cdk deploy --app 'node lib/dog-facts-mcp-server.js' --require-approval never
 
 # Configure integ tests
 cd ../../../e2e_tests/

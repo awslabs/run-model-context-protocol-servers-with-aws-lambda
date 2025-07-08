@@ -27,11 +27,35 @@
       "type": "json"
     },
     {
+      "filename": "examples/servers/auth/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "examples/servers/auth/package-lock.json",
+      "type": "json"
+    },
+    {
       "filename": "examples/servers/weather-alerts/package.json",
       "type": "json"
     },
     {
       "filename": "examples/servers/weather-alerts/package-lock.json",
+      "type": "json"
+    },
+    {
+      "filename": "examples/servers/cat-facts/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "examples/servers/cat-facts/package-lock.json",
+      "type": "json"
+    },
+    {
+      "filename": "examples/servers/dog-facts/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "examples/servers/dog-facts/package-lock.json",
       "type": "json"
     },
     {

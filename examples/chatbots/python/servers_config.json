@@ -14,5 +14,13 @@
       "functionName": "mcp-server-weather-alerts",
       "region": "us-east-2"
     }
+  },
+  "lambdaFunctionUrls": {
+    "mcpdoc": {
+      "stackName": "LambdaMcpServer-Mcpdoc"
+    },
+    "cat-facts": {
+      "stackName": "LambdaMcpServer-CatFacts"
+    }
   }
 }

@@ -1,0 +1,72 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Dad Jokes API",
+    "description": "A simple API to get random dad jokes",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://icanhazdadjoke.com",
+      "description": "Dad Jokes API server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get a random dad joke",
+        "description": "Returns a random dad joke in JSON format",
+        "operationId": "getRandomDadJoke",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            },
+            "description": "Content type to accept"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "My Library"
+            },
+            "description": "User agent string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A random dad joke",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the joke"
+                    },
+                    "joke": {
+                      "type": "string",
+                      "description": "The dad joke text"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "description": "HTTP status code"
+                    }
+                  },
+                  "required": ["id", "joke", "status"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

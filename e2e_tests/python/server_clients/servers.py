@@ -56,13 +56,6 @@ class Servers:
                 arguments=arguments,
             )
 
-            if isinstance(result, dict) and "progress" in result:
-                progress = result["progress"]
-                total = result["total"]
-                percentage = (progress / total) * 100
-                logging.info(f"Progress: {progress}/{total} " f"({percentage:.1f}%)")
-                raise "Does not support progress notifications from tools yet"
-
             return {"toolResult": result}
         except ValueError:
             return {

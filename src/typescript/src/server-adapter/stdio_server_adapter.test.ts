@@ -7,7 +7,7 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { StdioServerParameters } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { Context } from 'aws-lambda';
-import { stdioServerAdapter } from './index.js';
+import { stdioServerAdapter } from './stdio_server_adapter.js';
 
 const serverParameters: StdioServerParameters = {
   command: 'npx',

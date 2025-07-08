@@ -14,5 +14,21 @@
       "functionName": "mcp-server-weather-alerts-INTEG_TEST_ID",
       "region": "us-east-2"
     }
+  },
+  "lambdaFunctionUrls": {
+    "mcpdoc": {
+      "stackName": "LambdaMcpServer-Mcpdoc-INTEG_TEST_ID"
+    },
+    "cat-facts": {
+      "stackName": "LambdaMcpServer-CatFacts-INTEG_TEST_ID"
+    }
+  },
+  "oAuthServers": {
+    "dog-facts": {
+      "serverStackName": "LambdaMcpServer-DogFacts-INTEG_TEST_ID"
+    },
+    "dad-jokes": {
+      "serverStackName": "LambdaMcpServer-DadJokes-INTEG_TEST_ID"
+    }
   }
 }

@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Cat Fact API",
+    "description": "An API for facts about cats",
+    "contact": {
+      "email": "contact@catfact.ninja"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://catfact.ninja"
+    }
+  ],
+  "paths": {
+    "/fact": {
+      "get": {
+        "tags": ["Facts"],
+        "summary": "Get Random Cat Fact",
+        "description": "Returns a random fact about cats",
+        "operationId": "getRandomCatFact",
+        "parameters": [
+          {
+            "name": "max_length",
+            "in": "query",
+            "description": "maximum length of returned fact",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatFact"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Fact not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CatFact": {
+        "title": "CatFact model",
+        "description": "CatFact",
+        "properties": {
+          "fact": {
+            "title": "Fact",
+            "description": "Fact",
+            "type": "string",
+            "format": "string"
+          },
+          "length": {
+            "title": "Length",
+            "description": "Length",
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Facts",
+      "description": "Cat Facts"
+    }
+  ],
+  "security": [[]]
+}

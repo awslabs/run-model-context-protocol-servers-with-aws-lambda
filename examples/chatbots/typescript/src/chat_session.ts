@@ -78,7 +78,12 @@ export class ChatSession {
 
       while (true) {
         const userInput = readline.question("\nYou: ").trim().toLowerCase();
-        if (userInput === "quit" || userInput === "exit") {
+        if (
+          userInput === "quit" ||
+          userInput === "exit" ||
+          userInput === "/quit" ||
+          userInput === "/exit"
+        ) {
           logger.info("\nExiting...");
           break;
         }

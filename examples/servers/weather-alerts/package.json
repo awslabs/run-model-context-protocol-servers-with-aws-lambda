@@ -1,6 +1,6 @@
 {
   "name": "weather-alerts",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "lib/weather-alerts-mcp-server.js",
   "types": "lib/weather-alerts-mcp-server.d.ts",
   "scripts": {
@@ -9,15 +9,15 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@types/node": "22.15.24",
-    "aws-cdk": "2.1017.0",
-    "cdk-nag": "^2.36.2",
+    "@types/node": "24.0.10",
+    "aws-cdk": "2.1020.2",
+    "cdk-nag": "^2.36.33",
     "typescript": "~5.8.3"
   },
   "dependencies": {
     "@types/aws-lambda": "^8.10.149",
-    "aws-cdk-lib": "2.199.0",
+    "aws-cdk-lib": "2.204.0",
     "constructs": "^10.0.0",
-    "openapi-mcp-server": "^1.2.0-beta05"
+    "@ivotoby/openapi-mcp-server": "1.7.0"
   }
 }

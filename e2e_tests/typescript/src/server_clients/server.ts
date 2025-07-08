@@ -1,8 +1,14 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import {
+  CallToolResult,
+  TextContent,
+} from "@modelcontextprotocol/sdk/types.js";
 import { Tool } from "./tool.js";
 import logger from "../logger.js";
-import { ToolResultBlock } from "@aws-sdk/client-bedrock-runtime";
-
+import {
+  ToolResultBlock,
+  ToolResultContentBlock,
+} from "@aws-sdk/client-bedrock-runtime";
 /**
  * Abstract base class for communicating with an MCP server.
  */
@@ -79,27 +85,36 @@ export abstract class Server {
     while (attempt < retries) {
       try {
         logger.info(`Executing ${toolName}...`);
-        const result = await this.client.callTool({
+        const result: CallToolResult = (await this.client.callTool({
           name: toolName,
           arguments: args,
-        });
+        })) as CallToolResult;
         logger.info(`Finished executing ${toolName}`);
 
-        if (result && typeof result === "object" && "progress" in result) {
-          const progress = result.progress as number;
-          const total = result.total as number;
-          const percentage = (progress / total) * 100;
-          logger.info(
-            `Progress: ${progress}/${total} (${percentage.toFixed(1)}%)`
-          );
-          throw new Error(
-            "Does not support progress notifications from tools yet"
-          );
+        if (result.isError) {
+          throw new Error(`Error executing tool: ${JSON.stringify(result)}`);
+        }
+
+        if (result.structuredContent) {
+          return {
+            toolUseId: toolUseId,
+            content: [{ text: JSON.stringify(result.structuredContent) }],
+            status: "success",
+          };
+        }
+
+        const content: ToolResultContentBlock[] = [];
+        for (const block of result.content) {
+          if (block.type === "text") {
+            content.push({ text: (block as TextContent).text });
+          } else {
+            throw new Error(`Unexpected content type: ${block.type}`);
+          }
         }
 
         return {
           toolUseId: toolUseId,
-          content: [{ text: String(result) }],
+          content,
           status: "success",
         };
       } catch (e) {

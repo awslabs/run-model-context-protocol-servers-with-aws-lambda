@@ -43,6 +43,10 @@ export class Configuration {
    * @returns The Bedrock client.
    */
   get bedrockClient(): BedrockRuntimeClient {
-    return new BedrockRuntimeClient({ region: this.region });
+    return new BedrockRuntimeClient({
+      region: this.region,
+      retryMode: "standard",
+      maxAttempts: 10,
+    });
   }
 }

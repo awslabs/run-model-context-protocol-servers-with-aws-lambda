@@ -3,6 +3,13 @@ name: Integ Tests
 on:
   workflow_dispatch: {}
   workflow_call:
+    secrets:
+      INTEG_TEST_ROLE_ARN:
+        required: true
+        description: ""
+      INTEG_TEST_REGION:
+        required: true
+        description: ""
   push:
     branches:
       - main

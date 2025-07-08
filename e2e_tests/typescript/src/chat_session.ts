@@ -82,10 +82,8 @@ export class ChatSession {
       const messages: Message[] = [];
 
       for (const [i, userInput] of this.userUtterances.entries()) {
-        if (i != 0) {
-          console.log("\n**Pausing 30 seconds to avoid Bedrock throttling**");
-          await new Promise((resolve) => setTimeout(resolve, 30 * 1000));
-        }
+        // To reduce token use, clear out past messages for each utterance
+        messages.length = 0;
 
         console.log(`\You: ${userInput}`);
 

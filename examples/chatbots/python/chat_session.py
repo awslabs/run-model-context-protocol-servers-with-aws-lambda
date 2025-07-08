@@ -66,7 +66,7 @@ class ChatSession:
             while True:
                 try:
                     user_input = input("\nYou: ").strip().lower()
-                    if user_input in ["quit", "exit"]:
+                    if user_input in ["quit", "exit", "/quit", "/exit"]:
                         logging.info("\nExiting...")
                         break
 

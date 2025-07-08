@@ -95,9 +95,31 @@ class Server(ABC):
                 result = await self.session.call_tool(tool_name, arguments)
                 logging.info(f"Finished executing {tool_name}")
 
+                if hasattr(result, "isError") and result.isError:
+                    raise Exception(f"Error executing tool: {result}")
+
+                if hasattr(result, "structuredContent") and result.structuredContent:
+                    return {
+                        "toolUseId": tool_use_id,
+                        "content": [{"text": str(result.structuredContent)}],
+                        "status": "success",
+                    }
+
+                content = []
+                if hasattr(result, "content"):
+                    for block in result.content:
+                        if hasattr(block, "type") and block.type == "text":
+                            content.append({"text": block.text})
+                        else:
+                            raise Exception(
+                                f"Unexpected content type: {getattr(block, 'type', 'unknown')}"
+                            )
+                else:
+                    raise Exception(f"No content found in result: {str(result)}")
+
                 return {
                     "toolUseId": tool_use_id,
-                    "content": [{"text": str(result)}],
+                    "content": content,
                     "status": "success",
                 }
 
