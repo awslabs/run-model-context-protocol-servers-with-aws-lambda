@@ -61,7 +61,7 @@
     "@aws-sdk/types": "^3.840.0",
     "@modelcontextprotocol/sdk": "^1.16.0",
     "@smithy/signature-v4": "^5.1.2",
-    "@types/aws-lambda": "^8.10.149",
+    "@types/aws-lambda": "^8.10.152",
     "winston": "^3.17.0"
   }
 }
