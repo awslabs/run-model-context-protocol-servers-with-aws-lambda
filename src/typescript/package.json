@@ -59,7 +59,7 @@
     "@aws-sdk/credential-provider-node": "^3.840.0",
     "@aws-sdk/protocol-http": "^3.370.0",
     "@aws-sdk/types": "^3.840.0",
-    "@modelcontextprotocol/sdk": "^1.16.0",
+    "@modelcontextprotocol/sdk": "^1.17.1",
     "@smithy/signature-v4": "^5.1.2",
     "@types/aws-lambda": "^8.10.149",
     "winston": "^3.17.0"
