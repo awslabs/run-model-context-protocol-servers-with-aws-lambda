@@ -51,7 +51,7 @@
     "ts-jest": "^29.4.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.35.1"
+    "typescript-eslint": "^8.38.0"
   },
   "dependencies": {
     "@aws-crypto/sha256-js": "^5.2.0",
