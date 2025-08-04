@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@aws-crypto/sha256-js": "^5.2.0",
-    "@aws-sdk/client-lambda": "^3.840.0",
+    "@aws-sdk/client-lambda": "^3.859.0",
     "@aws-sdk/credential-provider-node": "^3.859.0",
     "@aws-sdk/protocol-http": "^3.370.0",
     "@aws-sdk/types": "^3.840.0",
