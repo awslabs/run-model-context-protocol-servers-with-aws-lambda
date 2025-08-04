@@ -9,7 +9,7 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "^3.842.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.859.0",
     "@aws-sdk/client-cloudformation": "^3.859.0",
     "@aws-sdk/credential-provider-node": "^3.840.0",
     "@modelcontextprotocol/sdk": "^1.16.0",
