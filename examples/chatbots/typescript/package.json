@@ -12,7 +12,7 @@
     "@aws-sdk/client-bedrock-runtime": "^3.859.0",
     "@aws-sdk/client-cloudformation": "^3.859.0",
     "@aws-sdk/client-ssm": "^3.859.0",
-    "@aws-sdk/credential-provider-node": "^3.840.0",
+    "@aws-sdk/credential-provider-node": "^3.873.0",
     "@modelcontextprotocol/sdk": "^1.17.1",
     "readline-sync": "^1.4.10",
     "winston": "^3.17.0",
