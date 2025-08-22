@@ -1,5 +1,5 @@
 aiobotocore[boto3]==2.23.2
-boto3==1.39.8
+boto3==1.40.15
 mcp==1.12.3
 uvicorn==0.35.0
 
