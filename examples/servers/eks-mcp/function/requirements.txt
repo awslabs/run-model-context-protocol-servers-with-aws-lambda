@@ -1,0 +1,3 @@
+run-mcp-servers-with-aws-lambda
+awslabs.eks-mcp-server
+boto3
