@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.882.0",
-    "@aws-sdk/client-cloudformation": "^3.873.0",
+    "@aws-sdk/client-cloudformation": "^3.882.0",
     "@aws-sdk/client-secrets-manager": "^3.882.0",
     "@aws-sdk/client-ssm": "^3.859.0",
     "@modelcontextprotocol/sdk": "^1.17.5",
