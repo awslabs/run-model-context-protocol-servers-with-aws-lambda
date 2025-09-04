@@ -8,7 +8,7 @@
     "teardown": "tsx teardown-gateway.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-sts": "3.873.0",
+    "@aws-sdk/client-sts": "3.882.0",
     "@aws-sdk/client-cloudformation": "3.873.0",
     "@aws-sdk/client-ssm": "3.873.0",
     "@aws-sdk/client-bedrock-agentcore-control": "3.873.0",
