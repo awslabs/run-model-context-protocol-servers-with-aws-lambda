@@ -156,8 +156,8 @@ jobs:
         with:
           inputs: ./examples/servers/book-search/gateway_setup/requirements.txt
 
-  check_inspiration_server:
-    name: Check Python-based Inspiration Server
+  check_zen_server:
+    name: Check Python-based Zen Server
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -172,11 +172,11 @@ jobs:
 
       - name: Install gateway setup dependencies
         run: pip install -r requirements.txt
-        working-directory: ./examples/servers/inspiration
+        working-directory: ./examples/servers/zen
 
       - uses: pypa/gh-action-pip-audit@v1.1.0
         with:
-          inputs: ./examples/servers/inspiration/requirements.txt
+          inputs: ./examples/servers/zen/requirements.txt
 
   check_auth_stack:
     name: Check Typescript-based Cognito stack

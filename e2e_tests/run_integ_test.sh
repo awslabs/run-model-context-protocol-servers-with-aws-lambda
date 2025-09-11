@@ -38,8 +38,8 @@ uv pip install -r requirements.txt
 python setup_gateway.py
 cd ../
 
-# Deploy Python-based inspiration MCP server
-cd ../inspiration
+# Deploy Python-based zen MCP server
+cd ../zen
 uv pip install -r requirements.txt
 python setup_gateway.py
 

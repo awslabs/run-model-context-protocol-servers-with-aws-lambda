@@ -15,7 +15,7 @@ def main():
 
     try:
         response = ssm_client.get_parameter(
-            Name=f"LambdaMcpServer-Inspiration-Gateway{suffix}"
+            Name=f"LambdaMcpServer-Zen-Gateway{suffix}"
         )
         gateway_info = json.loads(response["Parameter"]["Value"])
         gateway_id = gateway_info["gatewayId"]
@@ -45,7 +45,7 @@ def main():
     agentcore_client.delete_gateway(gatewayIdentifier=gateway_id)
 
     # Delete SSM parameter
-    ssm_client.delete_parameter(Name=f"LambdaMcpServer-Inspiration-Gateway{suffix}")
+    ssm_client.delete_parameter(Name=f"LambdaMcpServer-Zen-Gateway{suffix}")
 
     print(f"Gateway {gateway_id} deleted successfully")
 

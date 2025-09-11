@@ -96,7 +96,7 @@ export class McpAuthStack extends cdk.Stack {
       "dog-facts",
       "book-search",
       "dictionary",
-      "inspiration",
+      "zen",
     ];
     const resourceServerScopes = mcpServers.map(
       (mcpServer) =>

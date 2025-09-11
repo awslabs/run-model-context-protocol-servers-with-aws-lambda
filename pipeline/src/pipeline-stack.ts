@@ -264,9 +264,9 @@ export class McpServersPipelineStack extends cdk.Stack {
       });
     });
 
-    // Add inspiration server with custom deployment
-    builds["inspiration"] = new codebuild.Project(this, "inspirationBuild", {
-      projectName: "mcp-server-inspiration-deploy",
+    // Add zen server with custom deployment
+    builds["zen"] = new codebuild.Project(this, "zenBuild", {
+      projectName: "mcp-server-zen-deploy",
       role: codeBuildRole,
       environment: {
         buildImage: codebuild.LinuxBuildImage.STANDARD_7_0,
@@ -283,7 +283,7 @@ export class McpServersPipelineStack extends cdk.Stack {
           },
           build: {
             commands: [
-              "cd examples/servers/inspiration",
+              "cd examples/servers/zen",
               "uv venv",
               ". .venv/bin/activate",
               "uv pip install -r requirements.txt",
@@ -388,11 +388,11 @@ export class McpServersPipelineStack extends cdk.Stack {
       });
     });
 
-    // Add inspiration server deployment action
+    // Add zen server deployment action
     actions.push(
       new codepipeline_actions.CodeBuildAction({
-        actionName: "DeployInspiration",
-        project: serverBuilds["inspiration"],
+        actionName: "DeployZen",
+        project: serverBuilds["zen"],
         input: sourceOutput,
         runOrder: 1,
       })

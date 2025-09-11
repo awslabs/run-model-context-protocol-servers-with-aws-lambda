@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ZenQuotes API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://zenquotes.io"
+    }
+  ],
+  "paths": {
+    "/api/today": {
+      "get": {
+        "operationId": "getTodayQuote",
+        "summary": "Get today's featured quote",
+        "responses": {
+          "200": {
+            "description": "Today's quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "q": {
+                        "type": "string",
+                        "description": "Quote text"
+                      },
+                      "a": {
+                        "type": "string",
+                        "description": "Author name"
+                      },
+                      "c": {
+                        "type": "string",
+                        "description": "Character count"
+                      },
+                      "h": {
+                        "type": "string",
+                        "description": "Pre-formatted HTML quote"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

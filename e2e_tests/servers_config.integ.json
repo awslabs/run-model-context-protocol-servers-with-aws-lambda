@@ -30,8 +30,8 @@
     "dad-jokes": {
       "serverStackName": "LambdaMcpServer-DadJokes-INTEG_TEST_ID"
     },
-    "inspiration": {
-      "serverSsmParameterName": "LambdaMcpServer-Inspiration-Gateway-INTEG_TEST_ID",
+    "zen": {
+      "serverSsmParameterName": "LambdaMcpServer-Zen-Gateway-INTEG_TEST_ID",
       "serverSsmRegion": "us-west-2"
     },
     "bookSearch": {

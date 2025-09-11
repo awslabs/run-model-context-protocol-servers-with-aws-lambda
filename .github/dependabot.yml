@@ -121,7 +121,7 @@ updates:
     rebase-strategy: "disabled"
 
   - package-ecosystem: pip
-    directory: "/examples/servers/inspiration"
+    directory: "/examples/servers/zen"
     schedule:
       interval: monthly
     open-pull-requests-limit: 10

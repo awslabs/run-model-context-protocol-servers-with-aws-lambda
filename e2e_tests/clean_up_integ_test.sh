@@ -27,7 +27,7 @@ cd gateway_setup/
 python teardown_gateway.py
 cd ../
 
-cd ../inspiration
+cd ../zen
 python teardown_gateway.py
 
 cd ../weather-alerts

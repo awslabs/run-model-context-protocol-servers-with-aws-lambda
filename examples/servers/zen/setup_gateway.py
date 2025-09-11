@@ -16,7 +16,7 @@ def main():
     account_id = sts.get_caller_identity()["Account"]
 
     # Load OpenAPI schema
-    with open("quoterism-openapi.json", "r") as f:
+    with open("zenquotes-openapi.json", "r") as f:
         openapi_schema = json.load(f)
 
     # Get Cognito authorizer info from CloudFormation stack
@@ -54,7 +54,7 @@ def main():
     # Create Gateway
     role_arn = f"arn:aws:iam::{account_id}:role/mcp-lambda-example-agentcore-gateways"
 
-    gateway_name = f"LambdaMcpServer-Inspiration-Gateway{suffix}"
+    gateway_name = f"LambdaMcpServer-Zen-Gateway{suffix}"
     if len(gateway_name) > 50:
         gateway_name = gateway_name[:50].rstrip('-')
 
@@ -74,7 +74,7 @@ def main():
     }
 
     ssm_client.put_parameter(
-        Name=f"LambdaMcpServer-Inspiration-Gateway{suffix}",
+        Name=f"LambdaMcpServer-Zen-Gateway{suffix}",
         Value=json.dumps(gateway_info),
         Type="String",
         Overwrite=True,
@@ -83,7 +83,7 @@ def main():
     # Create OpenAPI target
     gateway_client.create_mcp_gateway_target(
         gateway=gateway,
-        name="quoterism-target",
+        name="zenquotes-target",
         target_type="openApiSchema",
         target_payload={"inlinePayload": json.dumps(openapi_schema)},
         # Target API does not require authentication, but Gateway requires credentials be provided.
@@ -98,7 +98,7 @@ def main():
     print(f"Gateway created successfully:")
     print(f"  ID: {gateway['gatewayId']}")
     print(f"  URL: {gateway['gatewayUrl']}")
-    print(f"  Saved to SSM parameter: LambdaMcpServer-Inspiration-Gateway{suffix}")
+    print(f"  Saved to SSM parameter: LambdaMcpServer-Zen-Gateway{suffix}")
 
 
 if __name__ == "__main__":

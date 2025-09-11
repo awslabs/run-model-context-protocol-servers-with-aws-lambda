@@ -12,7 +12,7 @@ The example chatbot client will communicate with ten servers:
 2. **dog-facts**: Ask "Tell me something about dogs."
 3. **book-search**: Ask "Who wrote the book Pride and Prejudice?"
 4. **dictionary**: Ask "How do you pronounce the word 'onomatopoeia'?"
-5. **inspiration**: Ask "Tell me the inspirational quote of the day."
+5. **zen**: Ask "Tell me the inspirational quote of the day."
 6. **mcpdoc**: Ask "Summarize the first page of the Strands Agents documentation."
 7. **cat-facts**: Ask "Tell me something about cats."
 8. **time**: Ask "What is the current time?".
@@ -25,14 +25,14 @@ The example chatbot client will communicate with ten servers:
 | [dog-facts](/examples/servers/dog-facts/)           | Typescript | Lambda        | Streamable HTTP transport                           | OAuth          | API Gateway               |
 | [book-search](/examples/servers/book-search/)       | Python     | Lambda        | Streamable HTTP transport                           | OAuth          | Bedrock AgentCore Gateway |
 | [dictionary](/examples/servers/dictionary/)         | Typescript | Lambda        | Streamable HTTP transport                           | OAuth          | Bedrock AgentCore Gateway |
-| [inspiration](/examples/servers/inspiration/)       | N/A        | None          | Streamable HTTP transport                           | OAuth          | Bedrock AgentCore Gateway |
+| [zen](/examples/servers/zen/)                       | N/A        | None          | Streamable HTTP transport                           | OAuth          | Bedrock AgentCore Gateway |
 | [mcpdoc](/examples/servers/mcpdoc/)                 | Python     | Lambda        | Custom Streamable HTTP transport with SigV4 support | AWS IAM        | Lambda Function URL       |
 | [cat-facts](/examples/servers/cat-facts/)           | Typescript | Lambda        | Custom Streamable HTTP transport with SigV4 support | AWS IAM        | Lambda Function URL       |
 | [time](/examples/servers/time/)                     | Python     | Lambda        | Custom Lambda Invoke transport                      | AWS IAM        | Lambda Invoke API         |
 | [weather-alerts](/examples/servers/weather-alerts/) | Typescript | Lambda        | Custom Lambda Invoke transport                      | AWS IAM        | Lambda Invoke API         |
 | [fetch](https://pypi.org/project/mcp-server-fetch/) | Python     | Local process | stdio                                               | N/A            | N/A                       |
 
-Note: The 'inspiration' MCP server uses Bedrock AgentCore Gateway's built-in support for OpenAPI targets,
+Note: The 'zen' MCP server uses Bedrock AgentCore Gateway's built-in support for OpenAPI targets,
 so there is no Lambda function in that example.
 
 ### Setup
@@ -211,12 +211,12 @@ npm install
 npm run setup
 ```
 
-#### Deploy inspiration MCP server
+#### Deploy zen MCP server
 
-Deploy the 'inspiration' Bedrock AgentCore Gateway.
+Deploy the 'zen' Bedrock AgentCore Gateway.
 
 ```bash
-cd examples/servers/inspiration/
+cd examples/servers/zen/
 
 uv pip install -r requirements.txt
 
