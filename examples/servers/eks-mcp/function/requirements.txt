@@ -1,3 +1,5 @@
-run-mcp-servers-with-aws-lambda
+# For testing, this module is installed from local files.
+# Uncomment this line to build using the module from PyPi
+# run-mcp-servers-with-aws-lambda >= 0.0.1
 awslabs.eks-mcp-server
 boto3
