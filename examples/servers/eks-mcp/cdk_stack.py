@@ -134,6 +134,7 @@ class LambdaEksMcpServer(Stack):
             entry="function",
             memory_size=2048,
             environment={
+                "LOG_LEVEL": "DEBUG",
                 "FASTMCP_LOG_LEVEL": "ERROR",
             },
             # For testing, the run-mcp-servers-with-aws-lambda module is built and bundled
