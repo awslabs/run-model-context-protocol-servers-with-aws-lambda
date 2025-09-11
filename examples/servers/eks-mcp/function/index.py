@@ -83,10 +83,6 @@ def handler(event, context):
 
         result = gateway_handler.handle(event, context)
         
-        # Debug logging for response format investigation
-        print(f"DEBUG: Lambda response type: {type(result)}")
-        print(f"DEBUG: Lambda response content: {result}")
-        
         return result
         
     except Exception as e:
