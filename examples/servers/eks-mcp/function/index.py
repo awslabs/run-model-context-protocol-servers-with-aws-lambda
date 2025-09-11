@@ -45,7 +45,7 @@ def handler(event, context):
 
         # Server configuration with proper StdioServerParameters
         server_params = StdioServerParameters(
-            command="python",
+            command=sys.executable,
             args=["-m", "awslabs.eks_mcp_server.server"],
             env={
                 "FASTMCP_LOG_LEVEL": "ERROR",
