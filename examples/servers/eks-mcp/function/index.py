@@ -13,8 +13,10 @@ Features:
 
 import os
 import boto3
-from mcp_lambda.handlers.bedrock_agent_core_gateway_target_handler import BedrockAgentCoreGatewayTargetHandler
-from mcp_lambda.server_adapter.stdio_server_adapter_request_handler import StdioServerAdapterRequestHandler
+from mcp_lambda import (
+    BedrockAgentCoreGatewayTargetHandler,
+    StdioServerAdapterRequestHandler,
+)
 from mcp.client.stdio import StdioServerParameters
 
 class MockClientContext:
