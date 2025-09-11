@@ -155,7 +155,7 @@ class LambdaEksMcpServer(Stack):
             ),
         )
 
-        # Function URL with AWS IAM authorization
+        # Function URL with AWS IAM authorization, optional for testing the Lambda function directly without AgentCore Gateway
         function_url = lambda_.FunctionUrl(
             self,
             "FunctionUrl",
