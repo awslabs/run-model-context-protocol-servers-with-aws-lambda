@@ -20,11 +20,6 @@ from mcp_lambda import (
 )
 from mcp.client.stdio import StdioServerParameters
 
-class MockClientContext:
-    """Mock client context for tool name extraction when not provided in context."""
-    def __init__(self, tool_name):
-        self.custom = {"bedrockAgentCoreToolName": tool_name}
-
 def handler(event, context):
     """
     Lambda handler for Amazon EKS MCP Server.
@@ -60,7 +55,7 @@ def handler(event, context):
             }
         )
 
-        # Extract tool name from event if not in context
+        # Extract tool name from event if not in context (for local development)
         if not (context.client_context and hasattr(context.client_context, "custom") and
                 context.client_context.custom.get("bedrockAgentCoreToolName")):
             tool_name = None
@@ -73,7 +68,12 @@ def handler(event, context):
                     tool_name = tool_name or headers.get("bedrockAgentCoreToolName")
 
             if tool_name:
-                context.client_context = MockClientContext(tool_name)
+                # Construct client context directly for local development
+                if not hasattr(context, 'client_context') or not context.client_context:
+                    context.client_context = type('ClientContext', (), {})()
+                if not hasattr(context.client_context, 'custom'):
+                    context.client_context.custom = {}
+                context.client_context.custom["bedrockAgentCoreToolName"] = tool_name
 
         # Create request handler with proper StdioServerParameters
         request_handler = StdioServerAdapterRequestHandler(server_params)
