@@ -156,22 +156,6 @@ class LambdaEksMcpServer(Stack):
             ),
         )
 
-        # Function URL with AWS IAM authorization, optional for testing the Lambda function directly without AgentCore Gateway
-        function_url = lambda_.FunctionUrl(
-            self,
-            "FunctionUrl",
-            function=lambda_function,
-            auth_type=lambda_.FunctionUrlAuthType.AWS_IAM,
-        )
-
-        CfnOutput(
-            self,
-            "FunctionUrlOutput",
-            key="FunctionUrl",
-            value=function_url.url,
-            export_name=f"EksMcpServerUrl{stack_name_suffix}",
-        )
-
 
 app = App()
 env = Environment(account=os.environ["CDK_DEFAULT_ACCOUNT"], region="us-west-2")
