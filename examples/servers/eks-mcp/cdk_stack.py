@@ -78,7 +78,8 @@ class LambdaEksMcpServer(Stack):
             ],
         )
 
-        # Add additional EKS permissions
+        # Add additional EKS permissions not covered by managed policies
+        # These are required for MCP server operations like listing clusters and describing resources
         lambda_role.add_to_policy(
             iam.PolicyStatement(
                 effect=iam.Effect.ALLOW,
@@ -99,7 +100,8 @@ class LambdaEksMcpServer(Stack):
             )
         )
 
-        # Add EC2 permissions for VPC and networking
+        # Add EC2 permissions for VPC and networking operations
+        # Required for Lambda to access EKS clusters in VPCs
         lambda_role.add_to_policy(
             iam.PolicyStatement(
                 effect=iam.Effect.ALLOW,
