@@ -14,7 +14,7 @@
     "@aws-sdk/client-secrets-manager": "^3.882.0",
     "@aws-sdk/client-ssm": "^3.882.0",
     "@modelcontextprotocol/sdk": "^1.19.1",
-    "winston": "^3.17.0"
+    "winston": "^3.18.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.34.0",
