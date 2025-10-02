@@ -49,7 +49,7 @@
     "eslint": "^9.36.0",
     "eslint-plugin-check-file": "^3.3.0",
     "jest": "^30.2.0",
-    "ts-jest": "^29.4.1",
+    "ts-jest": "^29.4.4",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0"
