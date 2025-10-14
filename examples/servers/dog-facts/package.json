@@ -11,7 +11,7 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.153",
     "@types/node": "24.6.1",
-    "aws-cdk": "2.1029.4",
+    "aws-cdk": "2.1030.0",
     "cdk-nag": "^2.37.40",
     "typescript": "~5.9.3"
   },
