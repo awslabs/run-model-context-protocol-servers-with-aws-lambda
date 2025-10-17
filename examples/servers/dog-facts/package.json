@@ -9,7 +9,7 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.153",
+    "@types/aws-lambda": "^8.10.156",
     "@types/node": "24.8.1",
     "aws-cdk": "2.1030.0",
     "cdk-nag": "^2.37.55",
