@@ -18,7 +18,7 @@
   "dependencies": {
     "aws-cdk-lib": "2.220.0",
     "constructs": "^10.0.0",
-    "@ivotoby/openapi-mcp-server": "1.9.1",
+    "@ivotoby/openapi-mcp-server": "1.10.2",
     "@aws-sdk/client-secrets-manager": "^3.0.0"
   }
 }
