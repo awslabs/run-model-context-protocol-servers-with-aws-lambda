@@ -12,7 +12,7 @@
     "@types/aws-lambda": "^8.10.156",
     "@types/node": "24.6.2",
     "aws-cdk": "2.1030.0",
-    "cdk-nag": "^2.37.40",
+    "cdk-nag": "^2.37.55",
     "typescript": "~5.9.3"
   },
   "dependencies": {
