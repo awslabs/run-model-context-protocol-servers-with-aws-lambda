@@ -12,7 +12,7 @@
     "@aws-sdk/client-bedrock-runtime": "^3.911.0",
     "@aws-sdk/client-cloudformation": "^3.913.0",
     "@aws-sdk/client-secrets-manager": "^3.911.0",
-    "@aws-sdk/client-ssm": "^3.882.0",
+    "@aws-sdk/client-ssm": "^3.913.0",
     "@modelcontextprotocol/sdk": "^1.20.0",
     "winston": "^3.18.3"
   },
