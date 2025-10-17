@@ -41,7 +41,7 @@
   "devDependencies": {
     "@eslint/js": "^9.37.0",
     "@tsconfig/recommended": "^1.0.10",
-    "@types/aws-lambda": "^8.10.153",
+    "@types/aws-lambda": "^8.10.156",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.7.2",
     "aws-sdk-client-mock": "^4.1.0",
