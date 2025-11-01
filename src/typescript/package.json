@@ -39,7 +39,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.37.0",
+    "@eslint/js": "^9.39.0",
     "@tsconfig/recommended": "^1.0.10",
     "@types/aws-lambda": "^8.10.156",
     "@types/jest": "^30.0.0",
