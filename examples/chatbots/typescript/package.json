@@ -22,7 +22,7 @@
     "@aws-crypto/sha256-js": "^5.2.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.38.0",
+    "@eslint/js": "^9.39.0",
     "@types/node": "^24.7.2",
     "@types/readline-sync": "^1.4.8",
     "eslint": "^9.37.0",
