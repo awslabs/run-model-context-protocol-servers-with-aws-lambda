@@ -1,6 +1,6 @@
 aiobotocore[boto3]==2.25.0
 mcp==1.17.0
-uvicorn==0.37.0
+uvicorn==0.38.0
 
 # For testing, this module is installed from local files.
 # Uncomment this line to build using the module from PyPi
