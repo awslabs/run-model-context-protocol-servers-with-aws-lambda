@@ -1,5 +1,5 @@
 aiobotocore[boto3]==2.25.0
-mcp==1.17.0
+mcp==1.20.0
 uvicorn==0.37.0
 
 # For testing, this module is installed from local files.
