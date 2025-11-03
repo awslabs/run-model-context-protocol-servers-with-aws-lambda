@@ -1,4 +1,4 @@
-aiobotocore[boto3]==2.25.0
+aiobotocore[boto3]==2.25.1
 mcp==1.20.0
 uvicorn==0.37.0
 
