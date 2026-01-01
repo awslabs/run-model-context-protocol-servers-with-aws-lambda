@@ -1,5 +1,5 @@
 strands-agents==1.15.0
-mcp==1.23.1
+mcp==1.25.0
 uvicorn==0.38.0
 boto3==1.42.3
 
