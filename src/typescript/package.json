@@ -44,7 +44,7 @@
     "@tsconfig/recommended": "^1.0.11",
     "@types/aws-lambda": "^8.10.157",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.9.2",
+    "@types/node": "^25.0.3",
     "aws-sdk-client-mock": "^4.1.0",
     "aws-sdk-client-mock-jest": "^4.1.0",
     "eslint": "^9.37.0",
