@@ -47,7 +47,7 @@
     "@types/node": "^24.9.2",
     "aws-sdk-client-mock": "^4.1.0",
     "aws-sdk-client-mock-jest": "^4.1.0",
-    "eslint": "^9.37.0",
+    "eslint": "^9.39.2",
     "eslint-plugin-check-file": "^3.3.0",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.5",
