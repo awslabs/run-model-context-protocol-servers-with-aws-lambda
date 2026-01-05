@@ -18,6 +18,6 @@
   "dependencies": {
     "aws-cdk-lib": "2.221.1",
     "constructs": "^10.4.4",
-    "@ivotoby/openapi-mcp-server": "1.10.2"
+    "@ivotoby/openapi-mcp-server": "1.12.3"
   }
 }
