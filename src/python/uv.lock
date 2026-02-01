@@ -1206,16 +1206,16 @@ wheels = [
 
 [[package]]
 name = "mcp-proxy-for-aws"
-version = "1.1.5"
+version = "1.1.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "boto3" },
     { name = "botocore", extra = ["crt"] },
     { name = "fastmcp" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/78/32/de9188fa3c05c4d74eb92178b050549747fa9093bddbf241f229af4b7b09/mcp_proxy_for_aws-1.1.5.tar.gz", hash = "sha256:4fcac55502a5daff3970ee52303b910f921233fd78078d78395de346bdc83a26", size = 318924, upload-time = "2025-12-15T11:21:36.975Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/73/e7/02e4431694b9aca6ae774c8ad6fbe566cf6e0dd94319162f09ac9db3b671/mcp_proxy_for_aws-1.1.6.tar.gz", hash = "sha256:e08ea8196711edfb6a699e16c2625b8864a8c01897f60a6a26f5b01d89d6a1fb", size = 384985, upload-time = "2026-01-29T15:01:56.906Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8c/2f/29c72b0fd02f4e9149da1a4ec60f084c4d617036a36a39330cffac3e52fc/mcp_proxy_for_aws-1.1.5-py3-none-any.whl", hash = "sha256:196f624bc65c5e9596547d84ea16048a4f6eae571fd2756ba50e503b1cae5a9f", size = 31094, upload-time = "2025-12-15T11:21:38.112Z" },
+    { url = "https://files.pythonhosted.org/packages/9a/43/691c5e2b4f96b14ba07e5367622ec5968802ff51381302d8521f51433510/mcp_proxy_for_aws-1.1.6-py3-none-any.whl", hash = "sha256:555e8e4c205a417563b4c97be9d0e9d99c92f338fa5a613bb1ed486c2a015664", size = 31115, upload-time = "2026-01-29T15:01:55.844Z" },
 ]
 
 [[package]]
