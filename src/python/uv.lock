@@ -12,7 +12,7 @@ resolution-mode = "lowest-direct"
 
 [[package]]
 name = "aiobotocore"
-version = "3.0.0"
+version = "3.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -23,9 +23,9 @@ dependencies = [
     { name = "python-dateutil" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6a/a6/88489577cadb42c549ca3f9d3a942267b042fd8ab1d24bdf4e4ac1bfe8a5/aiobotocore-3.0.0.tar.gz", hash = "sha256:2a039d14d18b2b89c56bf13a266f033432047c47b22444919e8a4330eab2952d", size = 121809, upload-time = "2025-12-10T07:35:46.218Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f6/bc/00ac3f44a66661fb28f2425b056d5bd202c2269a686ab0a683bb0e0516f0/aiobotocore-3.1.1.tar.gz", hash = "sha256:a19a36b930a041aa21553d67ae8a6bc464e107806eee60af3c71502f1009826c", size = 122530, upload-time = "2026-01-20T17:00:29.067Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/61/94/5961070353b97647917166b00cccf98773370e65b8716dedd14d99cf14dd/aiobotocore-3.0.0-py3-none-any.whl", hash = "sha256:b3f7125d8a7a4077f43af94c5614a613b6d0ebc2eb6954abc78e421b43cd7629", size = 87300, upload-time = "2025-12-10T07:35:44.912Z" },
+    { url = "https://files.pythonhosted.org/packages/67/84/d844b79acd9fe15ded60b614b7df04a12fad854ee1fbb8415d726ab1beeb/aiobotocore-3.1.1-py3-none-any.whl", hash = "sha256:a4e12a3bd099cd19dc2b2e9fe01a807131b46ebd0f83f509bda3cb243e988c32", size = 87667, upload-time = "2026-01-20T17:00:27.869Z" },
 ]
 
 [[package]]
