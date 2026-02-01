@@ -19,7 +19,7 @@
     "@aws-sdk/types": "^3.957.0",
     "@modelcontextprotocol/sdk": "^1.25.2",
     "@smithy/signature-v4": "^5.3.7",
-    "@strands-agents/sdk": "^0.1.1",
+    "@strands-agents/sdk": "^0.2.0",
     "readline-sync": "^1.4.10",
     "winston": "^3.18.3"
   },
