@@ -21,7 +21,7 @@
     "@smithy/signature-v4": "^5.3.7",
     "@strands-agents/sdk": "^0.1.1",
     "readline-sync": "^1.4.10",
-    "winston": "^3.18.3"
+    "winston": "^3.19.0"
   },
   "devDependencies": {
     "@cfworker/json-schema": "^4.1.1",
