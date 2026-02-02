@@ -17,7 +17,7 @@ The example chatbot client will communicate with ten servers:
 7. **cat-facts**: Ask "Tell me something about cats."
 8. **time**: Ask "What is the current time?".
 9. **weather-alerts**: Ask "Are there any weather alerts right now?".
-10. **fetch**: Ask "Who is Tom Cruise?".
+10. **fetch**: Ask "Fetch the content of the example.com home page".
 
 | MCP server                                          | Language   | Runtime       | MCP transport                                       | Authentication | Endpoint                  |
 | --------------------------------------------------- | ---------- | ------------- | --------------------------------------------------- | -------------- | ------------------------- |

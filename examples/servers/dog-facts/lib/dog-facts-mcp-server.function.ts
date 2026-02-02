@@ -54,8 +54,8 @@ async function initializeHandler(): Promise<APIGatewayProxyEventHandler> {
       "https://api.thedogapi.com/v1",
       "--openapi-spec",
       "./dog-facts-openapi.json",
-      "--api-key",
-      apiKey,
+      "--headers",
+      `x-api-key:${apiKey}`,
     ],
   };
 

@@ -72,11 +72,17 @@ jobs:
         timeout-minutes: 40
         working-directory: ${{ github.workspace }}
 
-      - name: Run tests
+      - name: Run Python tests
         run: |
           source src/python/.venv/bin/activate
-          ./e2e_tests/run_integ_test.sh
-        timeout-minutes: 40
+          ./e2e_tests/run_python_integ_test.sh
+        timeout-minutes: 20
+        working-directory: ${{ github.workspace }}
+
+      - name: Run Typescript tests
+        run: |
+          ./e2e_tests/run_typescript_integ_test.sh
+        timeout-minutes: 20
         working-directory: ${{ github.workspace }}
 
       - name: Clean up

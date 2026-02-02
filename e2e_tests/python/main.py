@@ -7,6 +7,7 @@ from typing import Any
 from botocore.config import Config
 from strands import Agent
 from strands.models import BedrockModel
+from strands.agent.conversation_manager import NullConversationManager
 from strands_evals import Case, Experiment
 from strands_evals.extractors import tools_use_extractor
 from strands_evals.types import TaskOutput
@@ -92,6 +93,7 @@ def main() -> None:
         model=bedrock_model,
         tools=[client for _, client in mcp_clients],
         system_prompt="You are a helpful assistant. Always retry tool call failures to recover from issues like transient network errors.",
+        conversation_manager=NullConversationManager(),
     )
 
     # List tools from each MCP client
@@ -109,7 +111,21 @@ def main() -> None:
     trajectory = tools_use_extractor.extract_agent_tools_used_from_messages(
         agent.messages
     )
+
+    # Log all tool calls for debugging
+    logging.info(f"Total tool calls in trajectory: {len(trajectory)}")
+    for i, event in enumerate(trajectory):
+        logging.debug(f"Tool call {i+1}: {event['name']}, is_error={event.get('is_error', False)}")
+
     called_tools = list(set([t["name"] for t in trajectory]))
+
+    # Log tool errors for debugging
+    tool_errors = [t for t in trajectory if t.get("is_error", False)]
+    if tool_errors:
+        logging.error(f"Tool errors detected: {len(tool_errors)}")
+        for error in tool_errors:
+            logging.error(f"  Tool: {error['name']}, Error: {error.get('tool_result', 'No error message')}")
+            logging.debug(f"  Full error event: {error}")
 
     expected_tools = [
         "get_current_time",  # time server
@@ -150,6 +166,12 @@ def main() -> None:
     print(f"Test Passes: {report.test_passes}")
     print(f"Reasons: {report.reasons}")
     print(f"Tools called: {called_tools}")
+
+    # Cleanup agent to avoid event loop errors
+    try:
+        agent.cleanup()
+    except Exception as e:
+        logging.warning(f"Error during agent cleanup: {e}")
 
     # Exit with non-zero code if test fails
     if not report.test_passes:
