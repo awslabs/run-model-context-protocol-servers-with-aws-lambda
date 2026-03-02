@@ -40,7 +40,7 @@
   ],
   "devDependencies": {
     "@cfworker/json-schema": "^4.1.1",
-    "@eslint/js": "^9.39.0",
+    "@eslint/js": "^10.0.1",
     "@tsconfig/recommended": "^1.0.13",
     "@types/aws-lambda": "^8.10.160",
     "@types/jest": "^30.0.0",
