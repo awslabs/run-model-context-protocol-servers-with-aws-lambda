@@ -576,6 +576,22 @@ class TestBedrockAgentCoreGatewayTargetHandler:
         ):
             handler.handle(event, context)
 
+    def test_empty_tool_name_after_delimiter_raises_error(self):
+        """Test that empty tool name after delimiter raises ValueError."""
+        handler = BedrockAgentCoreGatewayTargetHandler(Mock(spec=RequestHandler))
+
+        # Mock context with gateway tool name that has empty tool name after delimiter
+        context = Mock(spec=LambdaContext)
+        context.client_context = Mock()
+        context.client_context.custom = {"bedrockAgentCoreToolName": "target___"}
+
+        event = {"param1": "value1"}
+
+        with pytest.raises(
+            ValueError, match="Invalid tool name format: target___"
+        ):
+            handler.handle(event, context)
+
     def test_multiple_delimiters_in_tool_name(self):
         """Test that tool name with multiple delimiters works correctly."""
         # Create a mock request handler that handles tools/call
