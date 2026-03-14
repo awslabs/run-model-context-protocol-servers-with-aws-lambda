@@ -137,7 +137,6 @@ class LambdaEksMcpServer(Stack):
             entry="function",
             memory_size=2048,
             timeout=Duration.seconds(10),
-            timeout=Duration.seconds(10),
             environment={
                 "LOG_LEVEL": "DEBUG",
                 "FASTMCP_LOG_LEVEL": "ERROR",

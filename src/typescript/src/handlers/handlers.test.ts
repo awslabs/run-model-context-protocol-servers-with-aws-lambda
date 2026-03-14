@@ -954,6 +954,21 @@ describe("BedrockAgentCoreGatewayTargetHandler", () => {
     ).rejects.toThrow("Invalid gateway tool name format: invalid_format");
   });
 
+  it("should throw error when tool name is empty after delimiter", async () => {
+    const contextWithEmptyToolName = {
+      clientContext: {
+        custom: {
+          bedrockAgentCoreToolName: "target___",
+        },
+      },
+    } as unknown as Context;
+    const event = { param1: "value1" };
+
+    await expect(
+      handler.handle(event, contextWithEmptyToolName)
+    ).rejects.toThrow("Invalid gateway tool name format: target___");
+  });
+
   it("should handle tool name with multiple delimiters", async () => {
     const contextWithMultipleDelimiters = {
       clientContext: {

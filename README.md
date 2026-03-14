@@ -268,7 +268,7 @@ async with streamablehttp_client(
         tool_result = await session.call_tool("echo", {"message": "hello"})
 ```
 
-See a full example as part of the sample chatbot [here](examples/chatbots/python/server_clients/interactive_oauth.py).
+See a full example as part of the sample chatbot [here](examples/chatbots/python/interactive_oauth.py).
 
 </details>
 
@@ -303,7 +303,7 @@ const transport = new StreamableHTTPClientTransport(
 await client.connect(transport);
 ```
 
-See a full example as part of the sample chatbot [here](examples/chatbots/typescript/src/server_clients/interactive_oauth.ts).
+See a full example as part of the sample chatbot [here](examples/chatbots/typescript/src/interactive_oauth.ts).
 
 </details>
 
@@ -433,7 +433,7 @@ async with streamablehttp_client(
         tool_result = await session.call_tool("echo", {"message": "hello"})
 ```
 
-See a full example as part of the sample chatbot [here](examples/chatbots/python/server_clients/interactive_oauth.py).
+See a full example as part of the sample chatbot [here](examples/chatbots/python/interactive_oauth.py).
 
 </details>
 
@@ -468,7 +468,7 @@ const transport = new StreamableHTTPClientTransport(
 await client.connect(transport);
 ```
 
-See a full example as part of the sample chatbot [here](examples/chatbots/typescript/src/server_clients/interactive_oauth.ts).
+See a full example as part of the sample chatbot [here](examples/chatbots/typescript/src/interactive_oauth.ts).
 
 </details>
 
@@ -586,7 +586,7 @@ async with aws_iam_streamablehttp_client(
         tool_result = await session.call_tool("echo", {"message": "hello"})
 ```
 
-See a full example as part of the sample chatbot [here](examples/chatbots/python/server_clients/lambda_function_url.py).
+See a full example as part of the sample chatbot [here](examples/chatbots/python/mcp_clients.py).
 
 </details>
 
@@ -620,7 +620,7 @@ const transport = new StreamableHTTPClientWithSigV4Transport(
 await client.connect(transport);
 ```
 
-See a full example as part of the sample chatbot [here](examples/chatbots/typescript/src/server_clients/lambda_function_url.ts).
+See a full example as part of the sample chatbot [here](examples/chatbots/typescript/src/mcp_clients.ts).
 
 </details>
 
@@ -719,7 +719,7 @@ async with lambda_function_client(server_params) as (
         tool_result = await session.call_tool("echo", {"message": "hello"})
 ```
 
-See a full example as part of the sample chatbot [here](examples/chatbots/python/server_clients/lambda_function.py).
+See a full example as part of the sample chatbot [here](examples/chatbots/python/mcp_clients.py).
 
 </details>
 
@@ -755,7 +755,7 @@ const transport = new LambdaFunctionClientTransport(serverParams);
 await client.connect(transport);
 ```
 
-See a full example as part of the sample chatbot [here](examples/chatbots/typescript/src/server_clients/lambda_function.ts).
+See a full example as part of the sample chatbot [here](examples/chatbots/typescript/src/mcp_clients.ts).
 
 </details>
 

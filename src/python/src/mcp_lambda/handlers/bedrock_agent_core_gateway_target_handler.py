@@ -33,7 +33,7 @@ class BedrockAgentCoreGatewayTargetHandler:
 
         # Gateway names the tools like <target name>___<tool name>
         parts = gateway_tool_name.split("___", 1)
-        if len(parts) != 2:
+        if len(parts) != 2 or not parts[1]:
             raise ValueError(f"Invalid tool name format: {gateway_tool_name}")
         tool_name = parts[1]
 
