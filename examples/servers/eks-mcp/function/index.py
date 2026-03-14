@@ -38,6 +38,9 @@ def handler(event, context):
         # Get AWS credentials from Lambda execution role
         session = boto3.Session()
         credentials = session.get_credentials()
+        if credentials is None:
+            raise RuntimeError("Unable to retrieve AWS credentials from the execution environment")
+        resolved = credentials.get_frozen_credentials()
 
         # Server configuration with proper StdioServerParameters
         server_params = StdioServerParameters(
@@ -46,9 +49,9 @@ def handler(event, context):
             env={
                 "FASTMCP_LOG_LEVEL": "ERROR",
                 "AWS_DEFAULT_REGION": os.environ.get("AWS_REGION", os.environ.get("AWS_DEFAULT_REGION", "us-east-1")),
-                "AWS_ACCESS_KEY_ID": credentials.access_key,
-                "AWS_SECRET_ACCESS_KEY": credentials.secret_key,
-                "AWS_SESSION_TOKEN": credentials.token,
+                "AWS_ACCESS_KEY_ID": resolved.access_key,
+                "AWS_SECRET_ACCESS_KEY": resolved.secret_key,
+                "AWS_SESSION_TOKEN": resolved.token or "",
                 # Set cache and temp directories to writable /tmp location
                 "CACHE_DIR": "/tmp",
                 "TMPDIR": "/tmp"

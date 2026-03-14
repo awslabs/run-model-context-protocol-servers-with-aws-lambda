@@ -1,7 +1,7 @@
 import json
 import logging
 import os
-from copy import deepcopy
+from copy import copy
 
 import anyio
 import mcp.types as types
@@ -11,7 +11,7 @@ from pydantic import ValidationError
 
 logger = logging.getLogger(__name__)
 log_level = os.getenv("LOG_LEVEL", "INFO").upper()
-logger.setLevel(getattr(logging, log_level))
+logger.setLevel(getattr(logging, log_level, logging.INFO))
 logger.addHandler(logging.StreamHandler())
 
 
@@ -65,7 +65,7 @@ async def handle_json_rpc_notification(server_params, event, context):
 
 async def handle_json_rpc_request(server_params: StdioServerParameters, event, context):
     # Drop the JSON-RPC specific keys
-    request = deepcopy(event)
+    request = copy(event)
     jsonrpc = request.pop("jsonrpc", None)
     id = request.pop("id", None)
 

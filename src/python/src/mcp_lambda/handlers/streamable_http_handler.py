@@ -38,7 +38,7 @@ from .request_handler import RequestHandler
 # Set up logging
 logger = logging.getLogger(__name__)
 log_level = os.getenv("LOG_LEVEL", "INFO").upper()
-logger.setLevel(getattr(logging, log_level))
+logger.setLevel(getattr(logging, log_level, logging.INFO))
 logger.addHandler(logging.StreamHandler())
 
 # Type variables for generic event and result types

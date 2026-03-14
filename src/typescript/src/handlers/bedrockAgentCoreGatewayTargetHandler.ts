@@ -41,6 +41,10 @@ export class BedrockAgentCoreGatewayTargetHandler {
       delimiterIndex + delimiter.length
     );
 
+    if (!toolName) {
+      throw new Error(`Invalid gateway tool name format: ${gatewayToolName}`);
+    }
+
     // Create JSON-RPC request from gateway event
     const jsonRpcRequest: JSONRPCRequest = {
       jsonrpc: "2.0",
