@@ -32,8 +32,11 @@ jobs:
           inputs: ./src/python
           # CVE-2025-69872: diskcache pickle deserialization - transitive dep via mcp-proxy-for-aws
           # No fix available yet. Limited risk: requires attacker write access to cache directory.
+          # CVE-2025-69196: fastmcp OAuth token audience binding - transitive dep via mcp-proxy-for-aws
+          # mcp-proxy-for-aws pins fastmcp<2.14.1, blocking the fix. Waiting for upstream update.
           ignore-vulns: |
             CVE-2025-69872
+            CVE-2025-69196
 
       - name: Build
         run: uv build
