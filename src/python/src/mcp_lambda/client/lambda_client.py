@@ -88,9 +88,8 @@ async def lambda_function_client(lambda_function: LambdaFunctionParameters):
                                     and function_response["FunctionError"]
                                 ):
                                     raise Exception(
-                                        "Function invoke returned a function error",
-                                        function_response,
-                                        response_payload,
+                                        f"Function invoke returned a function error: "
+                                        f"{function_response.get('FunctionError')} - {response_payload}"
                                     )
 
                                 if response_payload == "{}":
