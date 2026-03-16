@@ -1,26 +1,26 @@
-{
-  "tools": [
-    {
-      "name": "get_search_json",
-      "description": "Search for books",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "q": {
-            "type": "string",
-            "description": "Search query"
-          },
-          "limit": {
-            "type": "integer",
-            "description": "query parameter limit"
-          },
-          "offset": {
-            "type": "integer",
-            "description": "query parameter offset"
-          }
+[
+  {
+    "name": "get_search_json",
+    "description": "Search for books",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "description": "Search query"
         },
-        "required": ["q"]
-      }
+        "limit": {
+          "type": "integer",
+          "description": "query parameter limit"
+        },
+        "offset": {
+          "type": "integer",
+          "description": "query parameter offset"
+        }
+      },
+      "required": [
+        "q"
+      ]
     }
-  ]
-}
+  }
+]

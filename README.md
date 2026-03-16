@@ -150,6 +150,110 @@ node /var/task/node_modules/@ivotoby/openapi-mcp-server/bin/mcp-server.js
 
 </details>
 
+### Passing credentials and other secrets to the MCP server
+
+This library does not provide out-of-the-box mechanisms for managing any secrets needed by the wrapped
+MCP server. For example, the [GitHub MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/github)
+and the [Brave search MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search)
+require API keys to make requests to third-party APIs.
+You may configure these API keys as
+[encrypted environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars-encryption.html)
+in the Lambda function's configuration or retrieve them from Secrets Manager in the Lambda function code (examples below).
+However, note that anyone with access to invoke the Lambda function
+will then have access to use your API key to call the third-party APIs by invoking the function.
+We recommend limiting access to the Lambda function using
+[least-privilege IAM policies](https://docs.aws.amazon.com/lambda/latest/dg/security-iam.html).
+If you use an identity-based authentication mechanism such as OAuth, you could also store and retrieve API keys per user but there are no implementation examples in this repository.
+
+<details>
+
+<summary><b>Python server example retrieving an API key from Secrets Manager</b></summary>
+
+```python
+import sys
+
+import boto3
+from mcp.client.stdio import StdioServerParameters
+
+# Retrieve API key from Secrets Manager
+secrets_client = boto3.client("secretsmanager")
+api_key = secrets_client.get_secret_value(SecretId="my-api-key-secret")["SecretString"]
+
+server_params = StdioServerParameters(
+    command=sys.executable,
+    args=["-m", "my_mcp_server"],
+    env={
+        "API_KEY": api_key,
+    },
+)
+```
+
+</details>
+
+<details>
+
+<summary><b>Typescript server example retrieving an API key from Secrets Manager</b></summary>
+
+```typescript
+import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager";
+
+const secretsClient = new SecretsManagerClient({});
+const secret = await secretsClient.send(
+  new GetSecretValueCommand({ SecretId: "my-api-key-secret" })
+);
+const apiKey = secret.SecretString;
+
+const serverParams = {
+  command: "npx",
+  args: ["--offline", "my-mcp-server"],
+  env: {
+    API_KEY: apiKey,
+  },
+};
+```
+
+</details>
+<br/>
+
+If your MCP server needs to call AWS APIs (such as the [MCP servers for AWS](https://github.com/awslabs/mcp)),
+you can pass the Lambda function's AWS credentials to the wrapped MCP server via environment variables.
+The wrapped MCP server's child process does not automatically inherit the Lambda execution role's credentials.
+Again, note that anyone with access to invoke the Lambda function
+will then have access to use the function's AWS credentials to call AWS APIs by invoking the function.
+We recommend limiting access to the Lambda function using
+[least-privilege IAM policies](https://docs.aws.amazon.com/lambda/latest/dg/security-iam.html).
+
+<details>
+
+<summary><b>Python server example using AWS credentials</b></summary>
+
+```python
+import os
+import sys
+
+import boto3
+from mcp.client.stdio import StdioServerParameters
+
+# Get AWS credentials from Lambda execution role to pass to subprocess
+session = boto3.Session()
+credentials = session.get_credentials()
+
+server_params = StdioServerParameters(
+    command=sys.executable,
+    args=["-c", "from awslabs.amazon_sns_sqs_mcp_server.server import main; main()"],
+    env={
+        "AWS_DEFAULT_REGION": os.environ.get("AWS_REGION", "us-west-2"),
+        "AWS_ACCESS_KEY_ID": credentials.access_key,
+        "AWS_SECRET_ACCESS_KEY": credentials.secret_key,
+        "AWS_SESSION_TOKEN": credentials.token,
+    },
+)
+```
+
+See a full, deployable example [here](examples/servers/sns-sqs/).
+
+</details>
+
 ## Use API Gateway
 
 ```mermaid
@@ -339,6 +443,14 @@ npx @modelcontextprotocol/inspector --cli --method tools/list <your MCP server c
 
 # For example:
 npx @modelcontextprotocol/inspector --cli --method tools/list uvx mcp-server-time > tool-schema.json
+```
+
+Some MCP servers generate tool schemas that AgentCore Gateway rejects with strict validation,
+such as `"items": {}`, `"default": null`, or `anyOf` with `{"type": "null"}`.
+You may need to clean up the schema before using it:
+
+```bash
+python3 scripts/clean-tool-schema.py tool-schema.json
 ```
 
 <details>
@@ -780,17 +892,6 @@ See a full example as part of the sample chatbot [here](examples/chatbots/typesc
   the [sqlite MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite),
   the [filesystem MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem),
   and the [git MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/git).
-- This library does not provide mechanisms for managing any secrets needed by the wrapped
-  MCP server. For example, the [GitHub MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/github)
-  and the [Brave search MCP server](https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search)
-  require API keys to make requests to third-party APIs.
-  You may configure these API keys as
-  [encrypted environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars-encryption.html)
-  in the Lambda function's configuration. However, note that anyone with access to invoke the Lambda function
-  will then have access to use your API key to call the third-party APIs by invoking the function.
-  We recommend limiting access to the Lambda function using
-  [least-privilege IAM policies](https://docs.aws.amazon.com/lambda/latest/dg/security-iam.html).
-  If you use an identity-based authentication mechanism such as OAuth, you could also store and retrieve API keys per user but there are no implementation examples in this repository.
 
 ## Deploy and run the examples
 

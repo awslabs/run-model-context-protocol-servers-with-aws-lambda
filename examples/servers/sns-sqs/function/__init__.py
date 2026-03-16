@@ -1,0 +1,1 @@
+# SNS/SQS MCP Server Lambda Function

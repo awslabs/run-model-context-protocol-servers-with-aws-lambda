@@ -20,6 +20,7 @@ export class McpServersPipelineStack extends cdk.Stack {
     { name: "time", language: "python" },
     { name: "weather-alerts", language: "typescript" },
     { name: "zen", language: "python" },
+    { name: "sns-sqs", language: "python" },
   ] as const;
 
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {

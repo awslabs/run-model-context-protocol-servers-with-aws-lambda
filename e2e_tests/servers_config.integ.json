@@ -38,6 +38,9 @@
     },
     "dictionary": {
       "serverStackName": "LambdaMcpServer-Dictionary-INTEG_TEST_ID"
+    },
+    "sns-sqs": {
+      "serverStackName": "LambdaMcpServer-SnsSqs-INTEG_TEST_ID"
     }
   }
 }

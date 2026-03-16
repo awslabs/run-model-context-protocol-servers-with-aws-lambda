@@ -40,8 +40,6 @@ class CommandHooks:
             f"UV_CACHE_DIR={output_dir}/.cache UV_DYNAMIC_VERSIONING_BYPASS=0.0.1 {output_dir}/uv build --wheel --directory {output_dir}/mcp_lambda_build",
             f"python -m pip install {output_dir}/mcp_lambda_build/dist/*.whl -t {output_dir}",
             f"rm -r {output_dir}/mcp_lambda_build {output_dir}/.cache uv",
-            # Copy the OpenAPI spec file to the Lambda deployment package
-            f"cp {input_dir}/open-library-openapi.json {output_dir}/",
         ]
 
     @jsii.member(jsii_name="beforeBundling")
@@ -49,7 +47,7 @@ class CommandHooks:
         return []
 
 
-class LambdaBookSearchMcpServer(Stack):
+class LambdaSnsSqsMcpServer(Stack):
     def __init__(
         self, scope: Construct, construct_id: str, stack_name_suffix: str, **kwargs
     ) -> None:
@@ -58,7 +56,7 @@ class LambdaBookSearchMcpServer(Stack):
         log_group = logs.LogGroup(
             self,
             "ServerFunctionLogGroup",
-            log_group_name=f"mcp-server-book-search{stack_name_suffix}",
+            log_group_name=f"mcp-server-sns-sqs{stack_name_suffix}",
             retention=logs.RetentionDays.ONE_DAY,
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -66,7 +64,7 @@ class LambdaBookSearchMcpServer(Stack):
         server_function = lambda_python.PythonFunction(
             self,
             "ServerFunction",
-            function_name="mcp-server-book-search" + stack_name_suffix,
+            function_name="mcp-server-sns-sqs" + stack_name_suffix,
             role=iam.Role.from_role_name(self, "Role", "mcp-lambda-example-servers"),
             log_group=log_group,
             runtime=lambda_.Runtime.PYTHON_3_13,
@@ -80,11 +78,9 @@ class LambdaBookSearchMcpServer(Stack):
             # from local files. Remove the bundling configuration if using the
             # run-mcp-servers-with-aws-lambda from PyPi.
             bundling=lambda_python.BundlingOptions(
-                # asset_excludes=[".venv", ".mypy_cache", "__pycache__"],
                 volumes=[
                     DockerVolume(
                         container_path="/mcp_lambda_src",
-                        # Assume we're in examples/servers/book-search dir
                         host_path=os.path.join(os.getcwd(), "../../../src/python"),
                     )
                 ],
@@ -104,7 +100,7 @@ class LambdaBookSearchMcpServer(Stack):
         )
 
         # Get gateway name with length limit
-        gateway_name = f"LambdaMcpServer-BookSearch-Gateway{stack_name_suffix}"
+        gateway_name = f"LambdaMcpServer-SnsSqs-Gateway{stack_name_suffix}"
         if len(gateway_name) > 48:
             gateway_name = gateway_name[:48].rstrip('-')
 
@@ -132,7 +128,7 @@ class LambdaBookSearchMcpServer(Stack):
             exception_level="DEBUG",
         )
 
-        # Upload tool schema to S3 asset bucket
+        # Upload tool schema to S3 asset bucket (too large for inline)
         tool_schema_asset = s3_assets.Asset(
             self,
             "ToolSchemaAsset",
@@ -143,7 +139,7 @@ class LambdaBookSearchMcpServer(Stack):
             self,
             "GatewayTarget",
             gateway_identifier=gateway.attr_gateway_identifier,
-            name="book-search-target",
+            name="sns-sqs-target",
             target_configuration={
                 "mcp": {
                     "lambda": {
@@ -185,11 +181,11 @@ env = Environment(account=os.environ["CDK_DEFAULT_ACCOUNT"], region="us-west-2")
 stack_name_suffix = (
     f'-{os.environ["INTEG_TEST_ID"]}' if "INTEG_TEST_ID" in os.environ else ""
 )
-stack = LambdaBookSearchMcpServer(
+stack = LambdaSnsSqsMcpServer(
     app,
-    "LambdaMcpServer-BookSearch",
+    "LambdaMcpServer-SnsSqs",
     stack_name_suffix,
-    stack_name="LambdaMcpServer-BookSearch" + stack_name_suffix,
+    stack_name="LambdaMcpServer-SnsSqs" + stack_name_suffix,
     env=env,
 )
 Aspects.of(stack).add(AwsSolutionsChecks(verbose=True))

@@ -18,6 +18,12 @@
             "Effect": "Allow",
             "Action": ["lambda:InvokeFunction"],
             "Resource": "arn:aws:lambda:*:*:function:*"
+        },
+        {
+            "Sid": "S3AssetBucketAccess",
+            "Effect": "Allow",
+            "Action": ["s3:GetObject"],
+            "Resource": "arn:aws:s3:::cdk-*-assets-*-*/*"
         }
     ]
 }

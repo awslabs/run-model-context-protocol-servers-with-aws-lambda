@@ -184,6 +184,32 @@ Resources:
       Roles:
         - !Ref LambdaFunctionsRole
 
+  LambdaSnsSqsAccessPolicy:
+    Type: "AWS::IAM::Policy"
+    Properties:
+      PolicyName: mcp-lambda-example-servers-sns-sqs-access
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - "sns:ListTopics"
+              - "sns:ListSubscriptions"
+              - "sns:ListSubscriptionsByTopic"
+              - "sns:GetTopicAttributes"
+              - "sns:GetSubscriptionAttributes"
+            Resource:
+              - "*"
+          - Effect: Allow
+            Action:
+              - "sqs:ListQueues"
+              - "sqs:GetQueueAttributes"
+              - "sqs:GetQueueUrl"
+            Resource:
+              - "*"
+      Roles:
+        - !Ref LambdaFunctionsRole
+
   BedrockAgentCoreGatewaysRole:
     Type: AWS::IAM::Role
     Properties:
@@ -218,6 +244,11 @@ Resources:
               - "lambda:InvokeFunction"
             Resource:
               - "arn:aws:lambda:*:*:function:*"
+          - Effect: Allow
+            Action:
+              - "s3:GetObject"
+            Resource:
+              - !Sub "arn:aws:s3:::cdk-*-assets-${AWS::AccountId}-*/*"
       Roles:
         - !Ref BedrockAgentCoreGatewaysRole
 

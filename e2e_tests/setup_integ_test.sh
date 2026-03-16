@@ -39,6 +39,11 @@ cd ../zen
 uv pip install -r requirements.txt
 cdk deploy --app 'python3 cdk_stack.py' --require-approval never
 
+# Deploy Python-based sns-sqs MCP server
+cd ../sns-sqs
+uv pip install -r requirements.txt
+cdk deploy --app 'python3 cdk_stack.py' --require-approval never
+
 ######## Deploy Typescript-based example MCP servers ########
 
 cd ../../../src/typescript/

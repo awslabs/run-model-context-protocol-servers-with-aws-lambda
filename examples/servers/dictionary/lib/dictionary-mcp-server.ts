@@ -1,4 +1,5 @@
 import * as cdk from "aws-cdk-lib";
+import { Asset } from "aws-cdk-lib/aws-s3-assets";
 import { Construct } from "constructs";
 import { NodejsFunction, OutputFormat } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Code, LayerVersion, Runtime } from "aws-cdk-lib/aws-lambda";
@@ -7,7 +8,6 @@ import { Role } from "aws-cdk-lib/aws-iam";
 import { CfnGateway, CfnGatewayTarget } from "aws-cdk-lib/aws-bedrockagentcore";
 import { AwsSolutionsChecks } from "cdk-nag";
 import * as path from "path";
-import * as fs from "fs";
 
 export class DictionaryMcpServer extends cdk.Stack {
   constructor(
@@ -78,11 +78,6 @@ export class DictionaryMcpServer extends cdk.Stack {
       },
     });
 
-    // Load tools configuration
-    const toolsConfig = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../gateway-tools-list.json"), "utf8")
-    );
-
     // Get gateway name with length limit
     let gatewayName = `LambdaMcpServer-Dictionary-Gateway${stackNameSuffix}`;
     if (gatewayName.length > 48) {
@@ -111,6 +106,11 @@ export class DictionaryMcpServer extends cdk.Stack {
       exceptionLevel: "DEBUG",
     });
 
+    // Upload tool schema to S3 asset bucket
+    const toolSchemaAsset = new Asset(this, "ToolSchemaAsset", {
+      path: path.join(__dirname, "../gateway-tools-list.json"),
+    });
+
     new CfnGatewayTarget(this, "GatewayTarget", {
       gatewayIdentifier: gateway.attrGatewayIdentifier,
       name: "dictionary-target",
@@ -118,7 +118,11 @@ export class DictionaryMcpServer extends cdk.Stack {
         mcp: {
           lambda: {
             lambdaArn: serverFunction.functionArn,
-            toolSchema: { inlinePayload: toolsConfig.tools },
+            toolSchema: {
+              s3: {
+                uri: toolSchemaAsset.s3ObjectUrl,
+              },
+            },
           },
         },
       },

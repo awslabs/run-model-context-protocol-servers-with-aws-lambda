@@ -1,26 +1,24 @@
-{
-  "tools": [
-    {
-      "name": "get-word-definition",
-      "description": "Make a GET request to /entries/en/{word}",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "word": {
-            "description": "word parameter",
-            "x-parameter-location": "path",
-            "type": "string"
-          }
-        },
-        "required": [
-          "word"
-        ]
+[
+  {
+    "name": "get-word-definition",
+    "description": "Make a GET request to /entries/en/{word}",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "word": {
+          "description": "word parameter",
+          "x-parameter-location": "path",
+          "type": "string"
+        }
       },
-      "tags": [],
-      "httpMethod": "GET",
-      "resourceName": "en",
-      "originalPath": "/entries/en/{word}",
-      "x-original-path": "/entries/en/{word}"
-    }
-  ]
-}
+      "required": [
+        "word"
+      ]
+    },
+    "tags": [],
+    "httpMethod": "GET",
+    "resourceName": "en",
+    "originalPath": "/entries/en/{word}",
+    "x-original-path": "/entries/en/{word}"
+  }
+]

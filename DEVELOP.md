@@ -13,11 +13,12 @@ The example chatbot client will communicate with ten servers:
 3. **book-search**: Ask "Who wrote the book Pride and Prejudice?"
 4. **dictionary**: Ask "How do you pronounce the word 'onomatopoeia'?"
 5. **zen**: Ask "Tell me the inspirational quote of the day."
-6. **mcpdoc**: Ask "Summarize the first page of the Strands Agents documentation."
-7. **cat-facts**: Ask "Tell me something about cats."
-8. **time**: Ask "What is the current time?".
-9. **weather-alerts**: Ask "Are there any weather alerts right now?".
-10. **fetch**: Ask "Fetch the content of the example.com home page".
+6. **sns-sqs**: Ask "List my SNS topics."
+7. **mcpdoc**: Ask "Summarize the first page of the Strands Agents documentation."
+8. **cat-facts**: Ask "Tell me something about cats."
+9. **time**: Ask "What is the current time?".
+10. **weather-alerts**: Ask "Are there any weather alerts right now?".
+11. **fetch**: Ask "Fetch the content of the example.com home page".
 
 | MCP server                                          | Language   | Runtime       | MCP transport                                       | Authentication | Endpoint                  |
 | --------------------------------------------------- | ---------- | ------------- | --------------------------------------------------- | -------------- | ------------------------- |
@@ -26,6 +27,7 @@ The example chatbot client will communicate with ten servers:
 | [book-search](/examples/servers/book-search/)       | Python     | Lambda        | Streamable HTTP transport                           | OAuth          | Bedrock AgentCore Gateway |
 | [dictionary](/examples/servers/dictionary/)         | Typescript | Lambda        | Streamable HTTP transport                           | OAuth          | Bedrock AgentCore Gateway |
 | [zen](/examples/servers/zen/)                       | N/A        | None          | Streamable HTTP transport                           | OAuth          | Bedrock AgentCore Gateway |
+| [sns-sqs](/examples/servers/sns-sqs/)               | Python     | Lambda        | Streamable HTTP transport                           | OAuth          | Bedrock AgentCore Gateway |
 | [mcpdoc](/examples/servers/mcpdoc/)                 | Python     | Lambda        | Custom Streamable HTTP transport with SigV4 support | AWS IAM        | Lambda Function URL       |
 | [cat-facts](/examples/servers/cat-facts/)           | Typescript | Lambda        | Custom Streamable HTTP transport with SigV4 support | AWS IAM        | Lambda Function URL       |
 | [time](/examples/servers/time/)                     | Python     | Lambda        | Custom Lambda Invoke transport                      | AWS IAM        | Lambda Invoke API         |
@@ -60,6 +62,11 @@ aws iam put-role-policy \
   --role-name mcp-lambda-example-servers \
   --policy-name secret-access \
   --policy-document file://examples/servers/lambda-function-role-policy.json
+
+aws iam put-role-policy \
+  --role-name mcp-lambda-example-servers \
+  --policy-name sns-sqs-access \
+  --policy-document file://examples/servers/lambda-function-sns-sqs-policy.json
 
 aws iam create-role \
   --role-name mcp-lambda-example-agentcore-gateways \
@@ -224,6 +231,19 @@ Then deploy the gateway:
 
 ```bash
 cd examples/servers/zen/
+
+uv pip install -r requirements.txt
+
+cdk deploy --app 'python3 cdk_stack.py'
+```
+
+#### Deploy sns-sqs MCP server
+
+Deploy the Lambda 'sns-sqs' function - the deployed function will be named "mcp-server-sns-sqs".
+This example wraps the [Amazon SNS/SQS MCP server](https://github.com/awslabs/mcp/tree/main/src/amazon-sns-sqs-mcp-server) from MCP servers for AWS.
+
+```bash
+cd examples/servers/sns-sqs/
 
 uv pip install -r requirements.txt
 
