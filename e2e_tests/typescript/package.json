@@ -16,7 +16,7 @@
     "@aws-sdk/client-secrets-manager": "^3.1010.0",
     "@aws-sdk/client-ssm": "^3.1010.0",
     "@modelcontextprotocol/sdk": "^1.27.1",
-    "@strands-agents/sdk": "^0.6.0",
+    "@strands-agents/sdk": "^0.7.0",
     "@types/json-schema": "^7.0.15",
     "winston": "^3.19.0"
   },
