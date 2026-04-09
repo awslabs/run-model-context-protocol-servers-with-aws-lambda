@@ -50,7 +50,7 @@
     "eslint": "^10.0.3",
     "eslint-plugin-check-file": "^3.3.1",
     "jest": "^30.3.0",
-    "ts-jest": "^29.4.6",
+    "ts-jest": "^29.4.9",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1"
