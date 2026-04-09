@@ -16,7 +16,7 @@
     "typescript": "~5.9.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.245.0",
+    "aws-cdk-lib": "2.248.0",
     "constructs": "^10.6.0",
     "@ivotoby/openapi-mcp-server": "1.14.0"
   }
