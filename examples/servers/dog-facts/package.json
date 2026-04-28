@@ -1,6 +1,6 @@
 {
   "name": "dog-facts",
-  "version": "0.5.16",
+  "version": "0.5.17",
   "main": "lib/dog-facts-mcp-server.js",
   "types": "lib/dog-facts-mcp-server.d.ts",
   "scripts": {
