@@ -1,4 +1,4 @@
-strands-agents==1.35.0
+strands-agents==1.38.0
 strands-agents-evals==0.1.14
 mcp==1.26.0
 aiohttp>=3.13.4
