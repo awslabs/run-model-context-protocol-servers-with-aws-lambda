@@ -31,7 +31,7 @@
     "@types/node": "^25.5.0",
     "@types/readline-sync": "^1.4.8",
     "eslint": "^10.2.0",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.58.1"
   }
 }
