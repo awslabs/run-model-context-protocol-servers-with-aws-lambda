@@ -13,7 +13,7 @@
     "@types/node": "25.5.0",
     "aws-cdk": "2.1120.0",
     "cdk-nag": "^2.37.55",
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.3"
   },
   "dependencies": {
     "aws-cdk-lib": "2.252.0",
