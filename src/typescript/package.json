@@ -53,11 +53,11 @@
     "ts-jest": "^29.4.9",
     "tsx": "^4.21.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.58.1"
+    "typescript-eslint": "^8.59.2"
   },
   "dependencies": {
     "@aws-crypto/sha256-js": "^5.2.0",
-    "@aws-sdk/client-lambda": "^3.1027.0",
+    "@aws-sdk/client-lambda": "^3.1043.0",
     "@aws-sdk/credential-provider-node": "^3.972.30",
     "@aws-sdk/protocol-http": "^3.374.0",
     "@aws-sdk/types": "^3.973.8",
