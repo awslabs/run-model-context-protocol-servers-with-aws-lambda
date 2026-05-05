@@ -9,6 +9,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-src:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/e2e_tests/python"
@@ -19,6 +23,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-e2e:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/chatbots/python"
@@ -29,6 +37,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-chatbots:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/time"
@@ -39,6 +51,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-time:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/time/function"
@@ -49,6 +65,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-time-function:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/mcpdoc"
@@ -59,6 +79,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-mcpdoc:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/mcpdoc/function"
@@ -69,6 +93,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-mcpdoc-function:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/dad-jokes"
@@ -79,6 +107,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-dad-jokes:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/dad-jokes/function"
@@ -89,6 +121,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-dad-jokes-function:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/book-search"
@@ -99,6 +135,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-book-search:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/book-search/function"
@@ -109,6 +149,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-book-search-function:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/zen"
@@ -119,6 +163,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-zen:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/sns-sqs"
@@ -129,6 +177,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-sns-sqs:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: "/examples/servers/sns-sqs/function"
@@ -139,6 +191,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      python-sns-sqs-function:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/src/typescript"
@@ -149,6 +205,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      npm-src:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/examples/chatbots/typescript"
@@ -159,6 +219,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      npm-chatbots:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/examples/servers/auth"
@@ -169,6 +233,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      npm-auth:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/examples/servers/weather-alerts"
@@ -179,6 +247,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      npm-weather-alerts:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/examples/servers/cat-facts"
@@ -189,6 +261,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      npm-cat-facts:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/examples/servers/dog-facts"
@@ -199,6 +275,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      npm-dog-facts:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/examples/servers/dictionary"
@@ -209,6 +289,10 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      npm-dictionary:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: "/e2e_tests/typescript"
@@ -219,3 +303,7 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    groups:
+      npm-e2e:
+        patterns:
+          - "*"
