@@ -14,7 +14,7 @@
     "@aws-sdk/client-cloudformation": "^3.1027.0",
     "@aws-sdk/client-s3": "^3.1027.0",
     "@aws-sdk/client-secrets-manager": "^3.1027.0",
-    "@aws-sdk/client-ssm": "^3.1027.0",
+    "@aws-sdk/client-ssm": "^3.1043.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "@strands-agents/sdk": "^1.0.0",
     "@types/json-schema": "^7.0.15",
