@@ -52,7 +52,7 @@
     "jest": "^30.3.0",
     "ts-jest": "^29.4.9",
     "tsx": "^4.21.0",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.58.1"
   },
   "dependencies": {
