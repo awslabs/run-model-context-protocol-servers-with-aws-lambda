@@ -17,16 +17,31 @@ import sys
 
 def clean(obj):
     if isinstance(obj, dict):
-        if "default" in obj and obj["default"] is None:
-            del obj["default"]
-        if "items" in obj and obj["items"] == {}:
-            obj["items"] = {"type": "string"}
-        if "anyOf" in obj:
-            obj["anyOf"] = [i for i in obj["anyOf"] if not (isinstance(i, dict) and i.get("type") == "null")]
-            if len(obj["anyOf"]) == 1:
-                item = obj["anyOf"].pop()
-                del obj["anyOf"]
-                obj.update(item)
+        # Run the transforms to a fixed point before recursing. Flattening an
+        # anyOf (via obj.update(item)) surfaces nested constructs such as
+        # "items": {} into this dict *after* the items/default checks have
+        # already run, so a single pass leaves them in place. Re-run until no
+        # transform fires. Each transform strictly removes a key or shrinks the
+        # anyOf list, so progress is monotonic and termination is guaranteed.
+        changed = True
+        while changed:
+            changed = False
+            if "default" in obj and obj["default"] is None:
+                del obj["default"]
+                changed = True
+            if "items" in obj and obj["items"] == {}:
+                obj["items"] = {"type": "string"}
+                changed = True
+            if "anyOf" in obj:
+                filtered = [i for i in obj["anyOf"] if not (isinstance(i, dict) and i.get("type") == "null")]
+                if len(filtered) != len(obj["anyOf"]):
+                    obj["anyOf"] = filtered
+                    changed = True
+                if len(obj["anyOf"]) == 1:
+                    item = obj["anyOf"].pop()
+                    del obj["anyOf"]
+                    obj.update(item)
+                    changed = True
         for v in obj.values():
             clean(v)
     elif isinstance(obj, list):
@@ -46,7 +61,7 @@ if __name__ == "__main__":
     clean(data)
 
     # Extract just the tools array if wrapped
-    if "tools" in data:
+    if isinstance(data, dict) and "tools" in data:
         data = data["tools"]
 
     with open(filepath, "w") as f:
