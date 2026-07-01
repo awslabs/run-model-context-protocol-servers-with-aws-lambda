@@ -203,15 +203,15 @@ wheels = [
 
 [[package]]
 name = "anyio"
-version = "4.14.0"
+version = "4.14.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "idna" },
     { name = "typing-extensions", marker = "python_full_version < '3.13'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1c/b5/001890774a9552aff22502b8da382593109ce0c95314abaebbb116567545/anyio-4.14.0.tar.gz", hash = "sha256:b47c1f9ccf73e67021df785332508f99379c68fa7d0684e8e3492cb1d4b23f89", size = 253586, upload-time = "2026-06-15T22:00:49.021Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3b/72/5562aabb8dd7181e8e860622a38bea08d17842b99ecd4c91f84ac95251b0/anyio-4.14.1.tar.gz", hash = "sha256:8d648a3544c1a700e3ff78615cd679e4c5c3f149904287e73687b2596963629e", size = 254831, upload-time = "2026-06-24T20:56:06.017Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ba/16/9826f089383c593cdfc4a6e5aca94d9e91ae1692c57af82c3b2aa5e810f7/anyio-4.14.0-py3-none-any.whl", hash = "sha256:dd9b7a2a9799ed6552fde617b2c5df02b7fdd7d88392fc48101e51bae46164d9", size = 123506, upload-time = "2026-06-15T22:00:47.595Z" },
+    { url = "https://files.pythonhosted.org/packages/b0/7b/90df4a0a816d98d6ea26f559d87836d494a2cf1fcf063be67df50a7bcc30/anyio-4.14.1-py3-none-any.whl", hash = "sha256:4e5533c5b8ff0a24f5d7a176cbe6877129cd183893f66b537f8f227d10527d72", size = 124875, upload-time = "2026-06-24T20:56:04.413Z" },
 ]
 
 [[package]]
@@ -237,15 +237,15 @@ wheels = [
 
 [[package]]
 name = "aws-lambda-powertools"
-version = "3.29.0"
+version = "3.31.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jmespath" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a5/a0/1b2f916731388692d037f961450ba8e6ec4567e4729a6b0d23a534cea9ec/aws_lambda_powertools-3.29.0.tar.gz", hash = "sha256:a81ce122356343878e095a11bd38f3e9a70f3fa0fea57b10b327d1e8dfe82b6e", size = 785177, upload-time = "2026-05-04T09:49:20.114Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/43/e7/4bcaca927dc76816aeea6015c81f7cbd3838261aece0e2499eff9e7beee0/aws_lambda_powertools-3.31.0.tar.gz", hash = "sha256:65f81f1c81e536fb04c20885b7bcd468d5cd232b813c11b6a1634b7d03bd3c8c", size = 797662, upload-time = "2026-06-29T11:05:02.794Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/bc/0f/ba8da75a8bd0f0c180be1ebf7ff73e8c2843b77ca9cc8a7945e6c92e4e4a/aws_lambda_powertools-3.29.0-py3-none-any.whl", hash = "sha256:e9ca87b5a8a835a7f7e327d5bafa43b6e0c150c6cb8c6b42158b0814377edc7a", size = 935956, upload-time = "2026-05-04T09:49:18.079Z" },
+    { url = "https://files.pythonhosted.org/packages/e1/95/17467cd097cf5f24cabd9ce903f75e5e5c17d2b58565b98c3e86d586ddc7/aws_lambda_powertools-3.31.0-py3-none-any.whl", hash = "sha256:fb6e7753ba1657490c8ed43bac9f44bef4c08bdcde2ddf9af2b35d31b061c5f6", size = 954717, upload-time = "2026-06-29T11:05:01.07Z" },
 ]
 
 [[package]]
@@ -1156,7 +1156,7 @@ wheels = [
 
 [[package]]
 name = "mcp"
-version = "1.28.0"
+version = "1.28.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -1176,23 +1176,23 @@ dependencies = [
     { name = "typing-inspection", version = "0.4.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14'" },
     { name = "uvicorn", marker = "sys_platform != 'emscripten'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c1/ee/94c6c50ffc5b5cf4737052275d11b57367f32d1a8516e31dcd60591b3916/mcp-1.28.0.tar.gz", hash = "sha256:559d3f9943674cafbe5744c5d3794f3237e8b47f9bbc58e20c0fad680d8487c2", size = 636040, upload-time = "2026-06-16T21:37:17.996Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/6e/77/9450b8f251a13affb6281997d0523c4615f8a8b35d0b21ff30db3a5aac9d/mcp-1.28.1.tar.gz", hash = "sha256:d51e36a5f5644faea4f85ea649bfffa6bc6c26770d42798ad6a3de3d2ba69683", size = 638501, upload-time = "2026-06-26T12:57:29.093Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2e/e1/4c1dc1fbb688641a712d34650c3d58bbbdcb314ddb75bc5817bbf33515a4/mcp-1.28.0-py3-none-any.whl", hash = "sha256:9c1e7cf3a9125557e418ecd4fed8e9adddce81b0dfdae4d6601d700f5beb71a4", size = 221959, upload-time = "2026-06-16T21:37:16.579Z" },
+    { url = "https://files.pythonhosted.org/packages/e2/5e/d118fce19f87a2e7d8101c35c8ae0ec289098a4df0ff244cec23e415aca0/mcp-1.28.1-py3-none-any.whl", hash = "sha256:2726bca5e7193f61c5dde8b12500a6de2d9acf6d1a1c0be9e8c2e706437991df", size = 222620, upload-time = "2026-06-26T12:57:27.218Z" },
 ]
 
 [[package]]
 name = "mcp-proxy-for-aws"
-version = "1.6.1"
+version = "1.6.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "boto3" },
     { name = "botocore", extra = ["crt"] },
     { name = "fastmcp" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1d/04/568d1b45ecb8b660da5129211a1853009f56c805b83b3df0960d0fcf5294/mcp_proxy_for_aws-1.6.1.tar.gz", hash = "sha256:83233a625f59264477958c8c821c316084362d06a39e34923685aa21d3b1ac8d", size = 434463, upload-time = "2026-06-12T14:30:51.719Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/9b/3b/63a9b7980cb450626b3289573ebdef6a1c6ee25d15feb9c7d0db7acf40ed/mcp_proxy_for_aws-1.6.3.tar.gz", hash = "sha256:883cb509429634404e8cb12f325a5e2bc17321bf5e4bdd73ed201363b71b9b1a", size = 436352, upload-time = "2026-06-26T14:35:24.286Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/26/98/b7f4df9516ae60c8a494ae7b7f2add25a8ad4e8a81201e5c5d0a108ab110/mcp_proxy_for_aws-1.6.1-py3-none-any.whl", hash = "sha256:92639b0427f423c486cdd9e59ce67756aa2ef7630b131bbd68878d63e525f43d", size = 40173, upload-time = "2026-06-12T14:30:50.597Z" },
+    { url = "https://files.pythonhosted.org/packages/0c/1e/6faefd578fdfbc9f0fe8195827c938c14b3caccf532161a23670564b02d4/mcp_proxy_for_aws-1.6.3-py3-none-any.whl", hash = "sha256:1c7081bec1dcfcdcd1f2307aa6e37cd248d73ea0c466fca363a7d6fe5c453f75", size = 40570, upload-time = "2026-06-26T14:35:23.01Z" },
 ]
 
 [[package]]
