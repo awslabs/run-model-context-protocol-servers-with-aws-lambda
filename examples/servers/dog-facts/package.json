@@ -10,15 +10,15 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.162",
-    "@types/node": "^25.9.3",
-    "aws-cdk": "^2.1127.0",
-    "cdk-nag": "^2.38.2",
+    "@types/node": "^26.1.0",
+    "aws-cdk": "^2.1129.0",
+    "cdk-nag": "^3.0.1",
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@aws-sdk/client-secrets-manager": "^3.1070.0",
+    "@aws-sdk/client-secrets-manager": "^3.1079.0",
     "@ivotoby/openapi-mcp-server": "^1.16.1",
-    "aws-cdk-lib": "^2.260.0",
+    "aws-cdk-lib": "^2.261.0",
     "constructs": "^10.6.0"
   }
 }
