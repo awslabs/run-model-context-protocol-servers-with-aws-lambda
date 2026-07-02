@@ -1,4 +1,4 @@
-aws-cdk-lib==2.260.0
-aws-cdk.aws-lambda-python-alpha==2.260.0a0
+aws-cdk-lib==2.261.0
+aws-cdk.aws-lambda-python-alpha==2.261.0a0
 constructs>=10.6.0,<11.0.0
-cdk-nag==2.38.2
+cdk-nag==3.0.1
