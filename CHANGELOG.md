@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.5.21](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/compare/v0.5.20...v0.5.21) (2026-07-07)
+
+
+### Bug Fixes
+
+* correct cdk-nag v3 API usage ([c95b22e](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/c95b22e50aa6dec288b6322d67da035351411273))
+* **python:** migrate Python CDK stacks from cdk-nag v2 to v3 ([7bee167](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/7bee16756ac7be8543419c3ae9b4eab1812cb341))
+* **typescript:** migrate TypeScript CDK stacks from cdk-nag v2 to v3 ([5e63d3c](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/5e63d3cd11aaf9dba2cacb1a6d500a2353fbb0e2))
+
 ## [0.5.20](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/compare/v0.5.19...v0.5.20) (2026-06-17)
 
 
