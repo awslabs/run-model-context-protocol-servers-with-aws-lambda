@@ -1,5 +1,7 @@
 # Run Model Context Protocol (MCP) servers with AWS Lambda
 
+[![MCP Toplist](https://mcptoplist.com/badge/mcp.so%2Frun-model-context-protocol-servers-with-aws-lambda%2Fawslabs.svg)](https://mcptoplist.com/server/mcp.so%2Frun-model-context-protocol-servers-with-aws-lambda%2Fawslabs)
+
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/run-mcp-servers-with-aws-lambda?style=for-the-badge&label=PyPi%20Downloads&color=blue)](https://pypi.org/project/run-mcp-servers-with-aws-lambda/)
 [![NPM Downloads](https://img.shields.io/npm/dm/%40aws%2Frun-mcp-servers-with-aws-lambda?style=for-the-badge&label=NPM%20Downloads&color=blue)](https://www.npmjs.com/package/@aws/run-mcp-servers-with-aws-lambda)
 
