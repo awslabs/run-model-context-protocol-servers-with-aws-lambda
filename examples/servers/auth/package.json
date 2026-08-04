@@ -11,12 +11,12 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.162",
     "@types/node": "^26.1.2",
-    "aws-cdk": "^2.1133.0",
+    "aws-cdk": "^2.1134.0",
     "cdk-nag": "^3.0.1",
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.262.2",
+    "aws-cdk-lib": "^2.263.0",
     "constructs": "^10.7.2"
   }
 }
