@@ -10,13 +10,13 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "^3.1078.0",
-    "@aws-sdk/client-cloudformation": "^3.1078.0",
-    "@aws-sdk/client-s3": "^3.1078.0",
-    "@aws-sdk/client-secrets-manager": "^3.1078.0",
-    "@aws-sdk/client-ssm": "^3.1078.0",
-    "@modelcontextprotocol/sdk": "^1.29.0",
-    "@strands-agents/sdk": "^1.7.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.1101.0",
+    "@aws-sdk/client-cloudformation": "^3.1101.0",
+    "@aws-sdk/client-s3": "^3.1101.0",
+    "@aws-sdk/client-secrets-manager": "^3.1101.0",
+    "@aws-sdk/client-ssm": "^3.1101.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@strands-agents/sdk": "^1.11.2",
     "@types/json-schema": "^7.0.15",
     "winston": "^3.19.0"
   },
@@ -24,9 +24,9 @@
     "@cfworker/json-schema": "^4.1.1",
     "@eslint/js": "^10.0.1",
     "@types/aws-lambda": "^8.10.162",
-    "@types/node": "^26.1.0",
-    "eslint": "^10.6.0",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.1"
+    "@types/node": "^26.1.2",
+    "eslint": "^10.8.0",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.65.0"
   }
 }
