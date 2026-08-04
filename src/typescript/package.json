@@ -41,28 +41,28 @@
   "devDependencies": {
     "@cfworker/json-schema": "^4.1.1",
     "@eslint/js": "^10.0.1",
-    "@smithy/util-stream": "^4.7.5",
+    "@smithy/util-stream": "^4.7.16",
     "@tsconfig/recommended": "^1.0.13",
     "@types/aws-lambda": "^8.10.162",
     "@types/jest": "^30.0.0",
-    "@types/node": "^26.1.0",
+    "@types/node": "^26.1.2",
     "aws-sdk-client-mock": "^4.1.0",
     "aws-sdk-client-mock-jest": "^4.1.0",
-    "eslint": "^10.6.0",
-    "eslint-plugin-check-file": "^3.3.1",
+    "eslint": "^10.8.0",
+    "eslint-plugin-check-file": "^3.3.2",
     "jest": "^30.4.2",
-    "ts-jest": "^29.4.11",
-    "tsx": "^4.22.4",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.1"
+    "ts-jest": "^29.4.12",
+    "tsx": "^4.23.1",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.65.0"
   },
   "dependencies": {
     "@aws-crypto/sha256-js": "^5.2.0",
-    "@aws-sdk/client-lambda": "^3.1078.0",
+    "@aws-sdk/client-lambda": "^3.1101.0",
     "@aws-sdk/credential-provider-node": "^3.972.56",
     "@aws-sdk/protocol-http": "^3.374.0",
     "@aws-sdk/types": "^3.973.13",
-    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "@smithy/signature-v4": "^5.5.0",
     "winston": "^3.19.0"
   }
