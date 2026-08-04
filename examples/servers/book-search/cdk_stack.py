@@ -1,5 +1,4 @@
 from aws_cdk import (
-    Acknowledgment,
     App,
     CfnOutput,
     DockerVolume,
@@ -70,7 +69,7 @@ class LambdaBookSearchMcpServer(Stack):
             function_name="mcp-server-book-search" + stack_name_suffix,
             role=iam.Role.from_role_name(self, "Role", "mcp-lambda-example-servers"),
             log_group=log_group,
-            runtime=lambda_.Runtime.PYTHON_3_13,
+            runtime=lambda_.Runtime.PYTHON_3_14,
             entry="function",
             memory_size=2048,
             timeout=Duration.seconds(30),
@@ -91,14 +90,6 @@ class LambdaBookSearchMcpServer(Stack):
                 ],
                 command_hooks=CommandHooks(),
             ),
-        )
-
-        # Suppress AwsSolutions-L1 for Python 3.13 runtime
-        Validations.of(server_function).acknowledge(
-            Acknowledgment(
-                id="AwsSolutions-L1",
-                reason="Python 3.13 runtime required due to dependency constraints",
-            )
         )
 
         # Get gateway name with length limit
