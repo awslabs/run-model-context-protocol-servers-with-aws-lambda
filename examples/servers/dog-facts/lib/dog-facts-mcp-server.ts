@@ -227,30 +227,30 @@ export class DogFactsMcpServer extends cdk.Stack {
 
     // Add CDK NAG suppressions
     Validations.of(api).acknowledge({
-      id: "AwsSolutions-APIG2",
+      id: "AwsSolutions::AwsSolutions-APIG2",
       reason:
         "Request validation is handled by the MCP SDK in the Lambda functions",
     });
 
     Validations.of(api.deploymentStage).acknowledge({
-      id: "AwsSolutions-APIG1",
+      id: "AwsSolutions::AwsSolutions-APIG1",
       reason: "Per-API Access logging is not enabled for this example",
     });
     Validations.of(api.deploymentStage).acknowledge({
-      id: "AwsSolutions-APIG3",
+      id: "AwsSolutions::AwsSolutions-APIG3",
       reason: "WAF is not enabled for this example",
     });
     Validations.of(api.deploymentStage).acknowledge({
-      id: "AwsSolutions-APIG6",
+      id: "AwsSolutions::AwsSolutions-APIG6",
       reason: "Per-API CloudWatch logging is not enabled for this example",
     });
 
     Validations.of(oAuthResourceMetadataGetMethod).acknowledge({
-      id: "AwsSolutions-APIG4",
+      id: "AwsSolutions::AwsSolutions-APIG4",
       reason: "OAuth metadata must be unauthenticated per RFC 9728",
     });
     Validations.of(oAuthResourceMetadataGetMethod).acknowledge({
-      id: "AwsSolutions-COG4",
+      id: "AwsSolutions::AwsSolutions-COG4",
       reason: "OAuth metadata must be unauthenticated per RFC 9728",
     });
 
