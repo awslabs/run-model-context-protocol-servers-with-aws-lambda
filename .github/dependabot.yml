@@ -9,6 +9,13 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The chatbot and e2e test environments install this package alongside
+    # strands-agents, which requires mcp<2.0.0, so this floor has to stay
+    # below 2.0.0 as well. Remove once strands-agents relaxes that bound:
+    # https://github.com/strands-agents/harness-sdk/issues/1659
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-src:
         patterns:
@@ -23,6 +30,11 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # strands-agents requires mcp<2.0.0. Remove once it relaxes that bound:
+    # https://github.com/strands-agents/harness-sdk/issues/1659
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-e2e:
         patterns:
@@ -37,6 +49,11 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # strands-agents requires mcp<2.0.0. Remove once it relaxes that bound:
+    # https://github.com/strands-agents/harness-sdk/issues/1659
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-chatbots:
         patterns:
