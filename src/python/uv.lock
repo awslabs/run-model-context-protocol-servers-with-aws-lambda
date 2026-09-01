@@ -3,9 +3,9 @@ revision = 3
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.14' and platform_python_implementation != 'PyPy'",
-    "python_full_version < '3.14' and platform_python_implementation != 'PyPy'",
     "python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform == 'win32'",
     "python_full_version >= '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'win32'",
+    "python_full_version < '3.14' and platform_python_implementation != 'PyPy'",
     "python_full_version < '3.14' and platform_python_implementation == 'PyPy' and sys_platform == 'win32'",
     "python_full_version < '3.14' and platform_python_implementation == 'PyPy' and sys_platform != 'win32'",
 ]
@@ -15,7 +15,7 @@ resolution-mode = "lowest-direct"
 
 [[package]]
 name = "aiobotocore"
-version = "3.8.0"
+version = "3.9.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -26,9 +26,9 @@ dependencies = [
     { name = "python-dateutil" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d8/a7/bc31b7046c610471f0630819ca5d2a57ac4efa8d47135cb53e43f2785390/aiobotocore-3.8.0.tar.gz", hash = "sha256:80a1eb64ea915f3af3c1518669975bae74a17b2f37c14eb0fa2f83b915974670", size = 131368, upload-time = "2026-07-17T03:10:30.258Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/73/c0/18abcb7e4e504a68714c280853fd180afe376a4a55e5511fb04ba76702e4/aiobotocore-3.9.0.tar.gz", hash = "sha256:5d344e97c518b010bea167c7f7ba4f9e785f9d2b8ac7af4fd00846c62f2c0a10", size = 514972, upload-time = "2026-08-01T11:54:07.673Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6d/f4/5a7d76dc844d3ff8ed1f1a043158aa393794aebb787d3e2f8c0fe87f674f/aiobotocore-3.8.0-py3-none-any.whl", hash = "sha256:8bc605132cadfe844a3f334635a0a64fa5e360a4a206e915d99d53db5b6deeba", size = 91169, upload-time = "2026-07-17T03:10:28.771Z" },
+    { url = "https://files.pythonhosted.org/packages/30/c5/6290519dec32f3cdf6827e3bbcbf7a9f4fb29a55a9204199901fed69957b/aiobotocore-3.9.0-py3-none-any.whl", hash = "sha256:7354659eac9ba6034675b3ea178330b7de97c45989d6fda1bf01d3da167b6135", size = 100764, upload-time = "2026-08-01T11:54:06.128Z" },
 ]
 
 [[package]]
@@ -237,15 +237,15 @@ wheels = [
 
 [[package]]
 name = "aws-lambda-powertools"
-version = "3.31.1"
+version = "3.34.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jmespath" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6b/77/8c74a558facb8bebdc6f3f0096ff5735b779d57c7bbdb7948f3e6d873504/aws_lambda_powertools-3.31.1.tar.gz", hash = "sha256:b46e575c7e290c55fe81ae4a38d8b5c91238242a4644438f8b858ce535a4125c", size = 800496, upload-time = "2026-07-13T09:22:11.16Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/6b/d2/ead05769a42baf2c01e9e8909b5b7a0a42b0798ab2d0eccacdef3d1f009d/aws_lambda_powertools-3.34.0.tar.gz", hash = "sha256:75f2c65a5997630666c9c3c495002c1f9d1e9defd3cb6d5d9fc7272b7dc9ef54", size = 800151, upload-time = "2026-08-10T11:26:10.742Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9b/e1/67a119333cb3656b9b482a77bb4b25e0488ca969218b71479b4ecfc1a5e1/aws_lambda_powertools-3.31.1-py3-none-any.whl", hash = "sha256:cd03f824bc11b59df727744fa9a419a01772d85fd0b15a67eee07f5472b37c77", size = 957593, upload-time = "2026-07-13T09:22:09.354Z" },
+    { url = "https://files.pythonhosted.org/packages/b3/d1/9e9433f99d8c9084d3bc831900f1ce7a99b0a2c153d9223e46839d8cc665/aws_lambda_powertools-3.34.0-py3-none-any.whl", hash = "sha256:ab1354c58085ccecf92e9c548b1336ad5bae72c7ae23e61d2aa0ff15520d679c", size = 957321, upload-time = "2026-08-10T11:26:09.002Z" },
 ]
 
 [[package]]
@@ -1153,7 +1153,7 @@ wheels = [
 
 [[package]]
 name = "mcp"
-version = "1.29.0"
+version = "1.29.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -1173,9 +1173,9 @@ dependencies = [
     { name = "typing-inspection", version = "0.4.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14'" },
     { name = "uvicorn", marker = "sys_platform != 'emscripten'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/30/d3/f9acc21dfc886e4f78e2add1a47db46ce16884346afde53f8a064c02c891/mcp-1.29.0.tar.gz", hash = "sha256:52d01f334de1868cc3bb2d6604931126a67631f99a6c5d3b82ba47290315ec36", size = 643148, upload-time = "2026-07-28T13:41:41.939Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b5/48/0bb26fdfe7ac16875f534a101ce2405eae192bdef37e7451f2f4507c13ec/mcp-1.29.1.tar.gz", hash = "sha256:1967ba4c315f7a375146209949f45950d18b0efd2f913d7cf3400bc723ee5f04", size = 646823, upload-time = "2026-08-24T18:30:41.161Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/01/c8/248b201f6d753d69fd5d6506011abbb35a946d9142b2ae311a948fd0be3d/mcp-1.29.0-py3-none-any.whl", hash = "sha256:f5a075bb611f23d6f4d080c6a1699fa62772eebc562ba9e66b306ddde1c755f7", size = 223436, upload-time = "2026-07-28T13:41:40.337Z" },
+    { url = "https://files.pythonhosted.org/packages/0b/04/d6b4fb82eefe9e81807aabca1ac98f460ae0883974b83a997aaa20c52545/mcp-1.29.1-py3-none-any.whl", hash = "sha256:b6310eeb59153300c4ab8b9aec4c52f4819a2d6a8e429eb43d908bed7c783648", size = 224653, upload-time = "2026-08-24T18:30:39.573Z" },
 ]
 
 [[package]]
