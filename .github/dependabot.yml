@@ -222,6 +222,13 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # typescript-eslint and ts-jest don't support TypeScript 7.0 (its npm
+    # package has no compiler API). Skip 7.0.x so Dependabot retries at 7.1:
+    # https://github.com/typescript-eslint/typescript-eslint/issues/10940
+    # https://github.com/kulshekhar/ts-jest/issues/5366
+    ignore:
+      - dependency-name: "typescript"
+        versions: ["7.0.x"]
     groups:
       npm-src:
         patterns:
@@ -236,6 +243,13 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # typescript-eslint and ts-jest don't support TypeScript 7.0 (its npm
+    # package has no compiler API). Skip 7.0.x so Dependabot retries at 7.1:
+    # https://github.com/typescript-eslint/typescript-eslint/issues/10940
+    # https://github.com/kulshekhar/ts-jest/issues/5366
+    ignore:
+      - dependency-name: "typescript"
+        versions: ["7.0.x"]
     groups:
       npm-chatbots:
         patterns:
@@ -320,6 +334,13 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # typescript-eslint and ts-jest don't support TypeScript 7.0 (its npm
+    # package has no compiler API). Skip 7.0.x so Dependabot retries at 7.1:
+    # https://github.com/typescript-eslint/typescript-eslint/issues/10940
+    # https://github.com/kulshekhar/ts-jest/issues/5366
+    ignore:
+      - dependency-name: "typescript"
+        versions: ["7.0.x"]
     groups:
       npm-e2e:
         patterns:
