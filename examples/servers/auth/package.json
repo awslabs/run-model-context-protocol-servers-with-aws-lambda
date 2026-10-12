@@ -9,14 +9,14 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.162",
-    "@types/node": "^26.1.2",
-    "aws-cdk": "^2.1134.0",
-    "cdk-nag": "^3.0.1",
+    "@types/aws-lambda": "^8.10.164",
+    "@types/node": "^26.6.5",
+    "aws-cdk": "^2.1145.0",
+    "cdk-nag": "^3.0.2",
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.263.0",
-    "constructs": "^10.7.2"
+    "aws-cdk-lib": "^2.273.0",
+    "constructs": "^10.8.1"
   }
 }
