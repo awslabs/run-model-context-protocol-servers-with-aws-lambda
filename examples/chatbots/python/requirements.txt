@@ -1,6 +1,7 @@
 strands-agents==1.54.0
 mcp==1.29.1
 uvicorn==0.52.4
+anyio>=4.14.2
 boto3==1.43.83
 
 # For testing, this module is installed from local files.
