@@ -1,5 +1,5 @@
 mcp-server-time
-anyio>=4.14.2
+anyio>=4.15.1
 
 # For testing, this module is installed from local files.
 # Uncomment this line to build using the module from PyPi
