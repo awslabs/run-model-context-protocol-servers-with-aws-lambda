@@ -1,4 +1,10 @@
 mcp-openapi-proxy
+# Keep mcp on 1.x. The bundled run-mcp-servers-with-aws-lambda library (via
+# mcp-proxy-for-aws and fastmcp) requires mcp 1.x, and its wheel is installed into
+# this same directory with `pip install -t` after these requirements. If mcp 2.x is
+# installed here first, pip -t leaves the 2.x `mcp/types/` package behind, which
+# shadows 1.x's `mcp/types.py` and breaks the Lambda at runtime.
+mcp>=1.28.0,<2
 
 # For testing, this module is installed from local files.
 # Uncomment this line to build using the module from PyPi
