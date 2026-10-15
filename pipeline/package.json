@@ -7,12 +7,12 @@
     "deploy": "cdk deploy --app 'node src/pipeline-stack.js'"
   },
   "devDependencies": {
-    "@types/node": "^25.9.3",
-    "aws-cdk": "^2.1127.0",
-    "typescript": "^6.0.3"
+    "@types/node": "^26.6.5",
+    "aws-cdk": "^2.1145.0",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.273.0",
-    "constructs": "^10.6.0"
+    "constructs": "^10.8.1"
   }
 }
