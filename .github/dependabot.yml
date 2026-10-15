@@ -345,3 +345,17 @@ updates:
       npm-e2e:
         patterns:
           - "*"
+
+  - package-ecosystem: npm
+    directory: "/pipeline"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    commit-message:
+      prefix: "chore(deps)"
+    rebase-strategy: "disabled"
+    groups:
+      npm-pipeline:
+        patterns:
+          - "*"
