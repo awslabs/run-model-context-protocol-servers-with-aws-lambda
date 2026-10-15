@@ -5,3 +5,4 @@ awslabs.amazon-sns-sqs-mcp-server
 # installed here first, pip -t leaves the 2.x `mcp/types/` package behind, which
 # shadows 1.x's `mcp/types.py` and breaks the Lambda at runtime.
 mcp>=1.28.0,<2
+anyio>=4.15.1
