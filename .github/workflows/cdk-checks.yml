@@ -124,3 +124,30 @@ jobs:
 
       # Note: This test intentionally does not try to synthesize the auth stack,
       # because it requires real credentials to look up a Route53 hosted zone
+
+  check_pipeline_stack:
+    name: TypeScript - pipeline
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./pipeline
+
+      - name: Build
+        run: npm run build
+        working-directory: ./pipeline
+
+      - name: Synthesize CDK stack
+        run: npm run synth
+        working-directory: ./pipeline
+        env:
+          CDK_DEFAULT_ACCOUNT: "000000000000"
