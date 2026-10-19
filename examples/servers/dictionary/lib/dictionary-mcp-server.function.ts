@@ -9,9 +9,13 @@ const serverParams = {
   args: [
     "/var/task/node_modules/@ivotoby/openapi-mcp-server/bin/mcp-server.js",
     "--api-base-url",
-    "https://api.dictionaryapi.dev/api/v2",
+    "https://en.wiktionary.org/api/rest_v1",
     "--openapi-spec",
-    "./free-dictionary-openapi.json",
+    "./wiktionary-openapi.json",
+    // Wikimedia APIs require a descriptive User-Agent header:
+    // https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy
+    "--headers",
+    "User-Agent:run-mcp-servers-with-aws-lambda-dictionary-example/1.0 (https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda)",
   ],
 };
 

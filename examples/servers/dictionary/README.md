@@ -2,7 +2,7 @@
 
 This remote MCP server wraps the [@ivotoby/openapi-mcp-server](https://www.npmjs.com/package/@ivotoby/openapi-mcp-server)
 stdio-based MCP server in a Lambda function. The server is configured with a simplified OpenAPI specification for the
-[Free Dictionary API](https://dictionaryapi.dev/).
+[Wiktionary REST API](https://en.wiktionary.org/api/rest_v1/).
 
 - Language: Typescript
 - Transport: Streamable HTTP transport

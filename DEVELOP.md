@@ -11,7 +11,7 @@ The example chatbot client will communicate with ten servers:
 1. **dad-jokes**: Ask "Tell me a good dad joke."
 2. **dog-facts**: Ask "Tell me something about golden retrievers."
 3. **book-search**: Ask "Who wrote the book Pride and Prejudice?"
-4. **dictionary**: Ask "How do you pronounce the word 'onomatopoeia'?"
+4. **dictionary**: Ask "What does the word 'onomatopoeia' mean?"
 5. **zen**: Ask "Tell me the inspirational quote of the day."
 6. **sns-sqs**: Ask "List my SNS topics."
 7. **mcpdoc**: Ask "Summarize the first page of the Strands Agents documentation."

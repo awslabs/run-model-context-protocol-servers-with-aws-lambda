@@ -1,7 +1,7 @@
 [
   {
     "name": "get-word-definition",
-    "description": "Make a GET request to /entries/en/{word}",
+    "description": "Make a GET request to /page/definition/{word}",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -17,8 +17,8 @@
     },
     "tags": [],
     "httpMethod": "GET",
-    "resourceName": "en",
-    "originalPath": "/entries/en/{word}",
-    "x-original-path": "/entries/en/{word}"
+    "resourceName": "definition",
+    "originalPath": "/page/definition/{word}",
+    "x-original-path": "/page/definition/{word}"
   }
 ]

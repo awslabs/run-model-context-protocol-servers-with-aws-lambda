@@ -69,7 +69,7 @@ export class DictionaryMcpServer extends cdk.Stack {
           },
           afterBundling(inputDir: string, outputDir: string): string[] {
             return [
-              `cp ${inputDir}/free-dictionary-openapi.json ${outputDir}/`,
+              `cp ${inputDir}/wiktionary-openapi.json ${outputDir}/`,
             ];
           },
           beforeInstall(inputDir: string, outputDir: string) {
