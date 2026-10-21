@@ -42,6 +42,12 @@ export class McpAuthStack extends cdk.Stack {
       featurePlan: cdk.aws_cognito.FeaturePlan.PLUS,
     });
 
+    Validations.of(userPool).acknowledge({
+      id: "AwsSolutions::AwsSolutions-COG2",
+      reason:
+        "MFA is not required for this example user pool, so the example user can sign in with only a username and password.",
+    });
+
     // Create a user in the user pool
     new CfnUserPoolUser(this, "McpAuthUser", {
       userPoolId: userPool.userPoolId,
