@@ -22,3 +22,7 @@ id = "GHSA-w889-685w-c8fh"
 [[IgnoredVulns]]
 # Stale native image storage reuse in multi-frame loaders after mode transitions
 id = "GHSA-v9pv-5gc8-w2m6"
+
+[[IgnoredVulns]]
+# Heap buffer overflow in FlashPix (FPX) JPEG decoding
+id = "GHSA-5x8w-8jj5-q52h"
