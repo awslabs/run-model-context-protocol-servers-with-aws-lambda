@@ -1,9 +1,9 @@
-strands-agents==1.60.0
+strands-agents==1.62.0
 mcp==1.30.0
 uvicorn==0.54.0
 anyio>=4.15.1
-certifi>=2026.10.19
-boto3==1.43.112
+certifi>=2026.10.23
+boto3==1.43.122
 
 # For testing, this module is installed from local files.
 # Uncomment this line to build using the module from PyPi
