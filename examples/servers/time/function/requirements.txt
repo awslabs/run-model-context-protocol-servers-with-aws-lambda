@@ -5,9 +5,9 @@ mcp-server-time
 # installed here first, pip -t leaves the 2.x `mcp/types/` package behind, which
 # shadows 1.x's `mcp/types.py` and breaks the Lambda at runtime. This also keeps
 # mcp-server-time on its last mcp 1.x-compatible release (2026.10.10).
-mcp>=1.28.0,<2
+mcp>=2.3.0,<3
 anyio>=4.15.1
-certifi>=2026.10.19
+certifi>=2026.10.23
 
 # For testing, this module is installed from local files.
 # Uncomment this line to build using the module from PyPi
