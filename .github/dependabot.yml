@@ -68,6 +68,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-time:
         patterns:
@@ -82,6 +88,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-time-function:
         patterns:
@@ -96,6 +108,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-mcpdoc:
         patterns:
@@ -110,6 +128,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-mcpdoc-function:
         patterns:
@@ -124,6 +148,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-dad-jokes:
         patterns:
@@ -138,6 +168,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-dad-jokes-function:
         patterns:
@@ -152,6 +188,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-book-search:
         patterns:
@@ -166,6 +208,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-book-search-function:
         patterns:
@@ -194,6 +242,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-sns-sqs:
         patterns:
@@ -208,6 +262,12 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     rebase-strategy: "disabled"
+    # The bundled run-mcp-servers-with-aws-lambda library requires mcp 1.x; see
+    # the comment in function/requirements.txt. Dependabot also updates the
+    # function/ requirements from the parent directory's entry, so both ignore it.
+    ignore:
+      - dependency-name: "mcp"
+        versions: [">=2.0.0"]
     groups:
       python-sns-sqs-function:
         patterns:
