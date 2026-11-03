@@ -11,12 +11,12 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.164",
     "@types/node": "^26.6.6",
-    "aws-cdk": "^2.1146.1",
+    "aws-cdk": "^2.1147.0",
     "cdk-nag": "^3.0.2",
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "@aws-sdk/client-secrets-manager": "^3.1160.0",
+    "@aws-sdk/client-secrets-manager": "^3.1161.0",
     "@ivotoby/openapi-mcp-server": "^1.16.1",
     "aws-cdk-lib": "^2.275.0",
     "constructs": "^10.8.1"
