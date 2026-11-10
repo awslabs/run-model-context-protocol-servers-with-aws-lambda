@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.5.23](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/compare/v0.5.22...v0.5.23) (2026-11-10)
+
+
+### Bug Fixes
+
+* **auth:** acknowledge cdk-nag AwsSolutions-COG2 on the example user pool ([ac65470](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/ac65470b86f17db0afbd57d914473a77b7c62c84))
+* **examples:** keep mcp on 1.x in the time server example ([3b331d3](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/3b331d375e2494df65e77ed1d6f21a574e76cbc7))
+* **examples:** restore mcp 1.x pins in example Lambda functions ([190a4f4](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/190a4f4a7f02bfc4b7c09062de667d9359157f49)), closes [#1718](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/issues/1718)
+* ignore pillow GHSA-5x8w-8jj5-q52h in vulnerability scan ([6688bf7](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/6688bf75a5158af3e1be421efcf3dee7fc7ac50f))
+* ignore pillow GHSA-v9pv-5gc8-w2m6 in vulnerability scan ([6ae81de](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/6ae81dedbfd63349b537724899fd03e92cd5a0d6))
+* pin certifi >= 2026.10.19 and ignore unfixable pillow vulns in vulnerability scan ([90f1874](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/90f18743ac3c3d48e4555dbea7df39d83041a4e2))
+* upgrade authlib to 1.9.1 to address GHSA-6v38-4h7w-rj9h ([96d7637](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/commit/96d76370d6ba732880b8ae660633f0a06879cd3c))
+
 ## [0.5.22](https://github.com/awslabs/run-model-context-protocol-servers-with-aws-lambda/compare/v0.5.21...v0.5.22) (2026-10-20)
 
 

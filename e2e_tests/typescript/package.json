@@ -1,6 +1,6 @@
 {
   "name": "mcp-e2e-test-typescript",
-  "version": "0.5.22",
+  "version": "0.5.23",
   "type": "module",
   "main": "build/main.js",
   "types": "build/main.d.ts",
